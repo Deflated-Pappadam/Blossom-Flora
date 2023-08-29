@@ -1,3 +1,4 @@
+import Carousal from "@/components/Carousal";
 import Image from "next/image";
 
 export default function Home() {
@@ -28,40 +29,31 @@ export default function Home() {
         </div>
 
         <div className="hidden md:flex w-full text-2xl font-extralight   items-center text-center justify-center gap-8  pb-5">
-          
           <span className="group relative inline-block ">
-            <span className="text-black py-2">
-              Home
-            </span>
+            <span className="text-black py-2">Home</span>
             <span className="absolute top-8 left-0 group-hover:w-full w-0 h-[2px] transition-all bg-black "></span>
           </span>
           <span className="group relative inline-block ">
-            <span className="text-black py-2">
-              About Us
-            </span>
+            <span className="text-black py-2">About Us</span>
             <span className="absolute top-8 left-0 group-hover:w-full w-0 h-[2px] transition-all bg-black "></span>
           </span>
           <span className="group relative inline-block ">
-            <span className="text-black py-2">
-              Shop
-            </span>
+            <span className="text-black py-2">Shop</span>
             <span className="absolute top-8 left-0 group-hover:w-full w-0 h-[2px] transition-all bg-black "></span>
           </span>
           <span className="group relative inline-block ">
-            <span className="text-black py-2">
-              Collection
-            </span>
+            <span className="text-black py-2">Collection</span>
             <span className="absolute top-8 left-0 group-hover:w-full w-0 h-[2px] transition-all bg-black "></span>
           </span>
           <span className="group relative inline-block ">
-            <span className="text-black py-2">
-              Contact Us
-            </span>
+            <span className="text-black py-2">Contact Us</span>
             <span className="absolute top-8 left-0 group-hover:w-full w-0 h-[2px] transition-all bg-black "></span>
           </span>
         </div>
       </nav>
-      ,<section id="carousal"></section>
+      <section id="carousal" className="w-full ">
+        <Carousal />
+      </section>
     </main>
   );
 }
