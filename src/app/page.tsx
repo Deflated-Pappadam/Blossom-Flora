@@ -3,6 +3,7 @@ import Itembox from "@/components/Itembox";
 import Image from "next/image";
 import Thumbnails from "@/components/Thumbnails";
 import ThumbMob from "@/components/ThumbMob";
+import Collections from "@/components/Collections";
 
 export default function Home() {
   return (
@@ -60,7 +61,7 @@ export default function Home() {
       </section>
       <section id="bestSeller" className="w-full h-full">
         <div className="w-full h-full">
-          <div className="w-full text-center text-4xl font-caslon  my-10">
+          <div className="w-full text-center text-3xl md:text-4xl font-caslon  my-10">
             Best Seller
           </div>
           <div className="flex w-[90%] md:w-[80%] mx-auto justify-between overflow-x-scroll gap-2 no-scrollbar ">
@@ -104,7 +105,7 @@ export default function Home() {
           />
         </div>
         <div className="flex flex-col items-center md:w-[50%]">
-          <div className="md:my-[50px] text-black md:text-6xl text-3xl font-caslon">
+          <div className="md:my-[60px] text-black md:text-5xl text-3xl font-caslon">
             About Us
           </div>
           <div className=" text-lg md:text-2xl font-light items-center w-[90%] md:w-[80%] mx-auto">
@@ -121,8 +122,22 @@ export default function Home() {
         </div>
 
       </section>
+      <section id="collections">
+        <div className="mt-[80px] text-center text-black text-2xl md:text-5xl font-caslon">
+          Collections
+        </div>
+        <div className="flex md:w-[75%] mx-auto p-5 justify-center gap-10  md:overflow-hidden overflow-scroll flex-wrap">
+          <Collections url="/Item01.jpg" name="Item name1" />
+          <Collections url="/Item02.jpg" name="Item name1" />
+          <Collections url="/Item03.jpg" name="Item name1" />
+          <Collections url="/Item04.jpg" name="Item name1" />
+          <Collections url="/Item01.jpg" name="Item name1" />
+          <Collections url="/Item02.jpg" name="Item name1" />
+          <Collections url="/Item03.jpg" name="Item name1" />
+          <Collections url="/Item04.jpg" name="Item name1" />
+        </div>
+      </section>
 
-      
     </main>
   );
 }
