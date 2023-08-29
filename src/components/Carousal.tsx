@@ -15,8 +15,8 @@ function Carousal() {
           interval: 2000,
           arrows: false,
           lazyLoad: true,
-          speed:600,
-          rewindSpeed:600
+          speed:1000,
+          rewindSpeed:1000
         }}
       >
         <SplideSlide>
