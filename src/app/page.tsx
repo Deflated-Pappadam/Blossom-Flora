@@ -1,9 +1,10 @@
 import Carousal from "@/components/Carousal";
+import Itembox from "@/components/Itembox";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col bg-slate-50">
+    <main className="flex w-full h-full min-h-full flex-col bg-slate-50">
       {/* Desktop Warning for Customers Hidden in Mobile View */}
       <div className="w-full font-light text-lg border-b-2 justify-start p-2 hidden md:flex">
         <div className="w-[80%] mx-auto">
@@ -11,18 +12,18 @@ export default function Home() {
         </div>
       </div>
 
-      <nav className="flex w-[95%] mx-auto flex-col justify-between  rounded-[10px] p-[20px] md:p-0">
+      <nav className="flex w-full md:w-[95%] mx-auto flex-col justify-between  rounded-[10px] py-[20px] md:p-0">
         <div className="flex w-[80%] mx-auto  justify-between  rounded-[10px]">
           {/* Logo */}
           <div className="md:flex pt-3 hidden justify-start">
             <Image src="/logo.png" alt="Logo" width={120} height={120} />
           </div>
           {/* Title */}
-          <div className="flex flex-col md:w-full font-logo text-2xl md:text-5xl text-center items-center justify-center font-caslon">
+          <div className="flex flex-col md:w-full font-logo text-xl md:text-5xl text-center items-center justify-center ">
             <div className="md:flex hidden text-3xl ">The </div>Blossom Flora
           </div>
           {/* Icons */}
-          <div className="flex gap-6 items-center h-full my-auto pt-3">
+          <div className="flex md:gap-6 gap-2 items-center h-full my-auto md:pt-3">
             <Image src="/search.svg" alt="Logo" width={30} height={30} />
             <Image src="/cart.png" alt="Logo" width={30} height={30} />
           </div>
@@ -51,8 +52,21 @@ export default function Home() {
           </span>
         </div>
       </nav>
-      <section id="carousal" className="w-full ">
+      {/* Carousal */}
+      <section id="carousal" className="w-full h-full ">
         <Carousal />
+      </section>
+      <section id="bestSeller" className="w-full h-full">
+        <div className="w-full h-full">
+          <div className="w-full text-center text-4xl font-caslon  my-10">Best Seller</div>
+          <div className="flex w-[90%] md:w-[80%] mx-auto justify-between overflow-x-scroll gap-2">
+          <Itembox url="/Item01.jpg" name="Item 1" description="from : Ritvik parayum"/>
+          <Itembox url="/Item02.jpg" name="Item 1" description="from : Ritvik parayum"/>
+          <Itembox url="/Item03.jpg" name="Item 1" description="from : Ritvik parayum"/>
+          <Itembox url="/Item04.jpg" name="Item 1" description="from : Ritvik parayum"/>
+          </div>
+          
+        </div>
       </section>
     </main>
   );

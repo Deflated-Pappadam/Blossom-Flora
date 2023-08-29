@@ -14,7 +14,8 @@ module.exports = {
       },
       fontFamily: {
         caslon: ['Caslon Bold', 'serif'],
-        logo: ['var(--font-logo)']
+        logo: ['var(--font-logo)'],
+        text: ['var(--font-text)'],
       },
     },
   },

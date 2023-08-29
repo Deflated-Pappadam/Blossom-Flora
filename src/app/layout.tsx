@@ -13,9 +13,25 @@ const logo = localFont({
     {
       path: '../../public/fonts/Great Bromwich W01 Bold.ttf',
       weight: '700'
-    }
+    },
+    
   ],
   variable: '--font-logo'
+})
+
+const text = localFont({
+  src:[
+    {
+      path: '../../public/fonts/MSung PRC Medium.ttf',
+      weight: '700'
+    },
+    {
+      path: '../../public/fonts/MSung PRC Medium.ttf',
+      weight: '700'
+    }
+  ],
+  variable: '--font-text'
+
 })
 
 
@@ -32,7 +48,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${logo.variable} font-sans`}>
+    <html lang="en" className={`${logo.variable} ${text.variable} font-sans`}>
       <body className={inter.className}>{children}</body>
     </html>
   )
