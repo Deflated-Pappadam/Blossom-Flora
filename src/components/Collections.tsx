@@ -21,10 +21,6 @@ function Collection(props: CollectionProps) {
           </div>
         </div>
       </div>
-
-      
-       
-      
     </div>
   );
 }
