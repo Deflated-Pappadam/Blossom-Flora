@@ -66,22 +66,22 @@ export default function Home() {
           </div>
           <div className="flex w-[90%] md:w-[80%] mx-auto justify-between overflow-x-scroll gap-2 no-scrollbar ">
             <Itembox
-              url="/Item01.jpg"
+              url="/Item01.jpeg"
               name="Item 1"
               description="from : Ritvik parayum"
             />
             <Itembox
-              url="/Item02.jpg"
+              url="/Item02.jpeg"
               name="Item 1"
               description="from : Ritvik parayum"
             />
             <Itembox
-              url="/Item03.jpg"
+              url="/Item03.jpeg"
               name="Item 1"
               description="from : Ritvik parayum"
             />
             <Itembox
-              url="/Item04.jpg"
+              url="/Item04.jpeg"
               name="Item 1"
               description="from : Ritvik parayum"
             />
@@ -92,16 +92,16 @@ export default function Home() {
       <section id="aboutUs" className="mt-10 flex flex-col md:flex-row ">
         <div className="md:flex hidden justify-center w-[50%] h-full items-center p-10 ">
           <Thumbnails
-            url1="/Item01.jpg"
-            url2="/Item02.jpg"
-            url3="/Item03.jpg"
+            url1="/Item01.jpeg"
+            url2="/Item02.jpeg"
+            url3="/Item03.jpeg"
           />
         </div>
         <div className="md:hidden flex justify-center items-center p-2 ">
           <ThumbMob
-            url1="/Item01.jpg"
-            url2="/Item02.jpg"
-            url3="/Item03.jpg"
+            url1="/Item01.jpeg"
+            url2="/Item02.jpeg"
+            url3="/Item03.jpeg"
           />
         </div>
         <div className="flex flex-col items-center md:w-[50%]">

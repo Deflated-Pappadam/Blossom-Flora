@@ -59,7 +59,7 @@ export default function ThumbMob(props:ThumbnailProps): ReactNode {
       gap: '0.5rem',
       pagination: false,
       arrows:false,
-      padding: '2rem',
+      padding: '0rem',
     };
   
     return (
