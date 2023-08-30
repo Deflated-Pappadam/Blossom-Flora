@@ -9,8 +9,8 @@ type itemProps = {
 
 function Itembox(props: itemProps) {
   return (
-    <div className="group flex flex-col w-full h-full mx-auto">
-      <div className="z-0 md:w-[300px] w-[150px]   md:min-w-[300px]  overflow-hidden">
+    <div className="group flex flex-col w-full h-full mx-auto justify-center items-center">
+      <div className=" md:w-[300px] w-[150px]   md:min-w-[300px]  overflow-hidden">
         <Image
           src={props.url}
           alt="Logo"
@@ -20,7 +20,7 @@ function Itembox(props: itemProps) {
         />
         
       </div>
-      <div className="z-10 bg-slate-50 md:w-[300px] w-[150px]   md:min-w-[300px] h-full ">
+      <div className=" bg-slate-50 md:w-[300px] w-[150px]   md:min-w-[300px] h-full ">
           <div className="md:text-3xl text-xl text-center font-text transition-all ">
             {props.name}
           </div>

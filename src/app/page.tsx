@@ -64,7 +64,7 @@ export default function Home() {
           <div className="w-full text-center text-3xl md:text-4xl font-caslon  my-10">
             Best Seller
           </div>
-          <div className="flex w-[90%] md:w-[80%] mx-auto justify-between overflow-x-scroll gap-2 no-scrollbar ">
+          <div className="flex w-[90%] md:w-[80%] mx-auto justify-between  overflow-x-scroll gap-2 no-scrollbar ">
             <Itembox
               url="/Item01.jpeg"
               name="Item 1"
