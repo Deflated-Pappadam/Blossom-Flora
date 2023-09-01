@@ -16,7 +16,7 @@ export default function Item() {
     }
   };
   return (
-    <div className="w-full h-screen flex flex-col">
+    <div className="w-full md:h-screen flex flex-col">
       <nav className="flex w-full md:w-[95%] mx-auto flex-col justify-between  rounded-[10px] py-[20px] md:p-0">
         <div className="flex w-[80%] mx-auto  justify-between  rounded-[10px]">
           {/* Logo */}
@@ -57,8 +57,8 @@ export default function Item() {
           </span>
         </div>
       </nav>
-      <div className="w-full h-full flex mx-10  justify-start">
-        <div className="w-[50%] h-full flex justify-center items-center mx-auto my-auto  overflow-hidden">
+      <div className="w-full h-full flex md:flex-row flex-col  md:mx-10 mx-4 justify-start ">
+        <div className="md:w-[50%] md:h-full h-[50%] flex justify-center items-center mx-auto my-auto  overflow-hidden">
           <div>
             <Image
               src="/Item01.jpg"
@@ -69,9 +69,9 @@ export default function Item() {
             />
           </div>
         </div>
-        <div className="flex flex-col w-[50%] h-full justify-center overflow-hidden">
-          <div className="w-[70%]">
-            <div className="text-xl font-light">Flowers</div>
+        <div className="flex flex-col md:w-[50%] h-full justify-center overflow-hidden">
+          <div className="md:w-[70%] h-full md:h-fit ">
+            <div className="md:text-xl  font-light">Flowers</div>
             <div className="text-4xl font-text">Item Flowers 01</div>
             <div className="text-xl font-light mt-5">
               A soft, warm hoodie from South America thats perfect for keeping
@@ -106,13 +106,13 @@ export default function Item() {
               </div>
             </div>
             <div className="text-3xl text-gray-800 my-5">€36.50</div>
-            <div className="group w-[60%] h-[60px] bg-black rounded-md hover:border-[1px] border-black hover:bg-white transition-all">
+            <div className="group md:w-[60%] md:h-[60px] w-[80%] h-[50px] bg-black rounded-md hover:border-[1px] border-black hover:bg-white transition-all">
               <div className="flex w-full h-full justify-center items-center text-white group-hover:text-black ">
                 Book Now
               </div>
             </div>
 
-            <div className="group w-[60%] h-[60px] bg-black rounded-md hover:border-[1px] border-black hover:bg-white transition-all my-5">
+            <div className="group md:w-[60%] md:h-[60px] w-[80%] h-[50px] bg-black rounded-md hover:border-[1px] border-black hover:bg-white transition-all my-5">
               <div className="flex w-full h-full justify-center items-center text-white group-hover:text-black ">
                 Add to Cart
               </div>

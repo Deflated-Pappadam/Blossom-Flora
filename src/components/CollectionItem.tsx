@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 export default function CollectionItem() {
   return (
-    <div>
+    <div className='max-w-[500px]'>
         <Image src={'/Item01.jpg'} alt={'Product Image'} width={400} height={400}/>
         <div>
           <h1>Item name</h1>

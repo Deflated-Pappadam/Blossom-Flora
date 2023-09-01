@@ -56,8 +56,8 @@ function Collections() {
         </nav>
         <section className="pt-7 flex bg-white">
           <ul className="px-10 w-[20%] ">
-            <li className="py-3 "> Collections</li>
-            <li className="flex items-center">
+            <li className="py-3 text-xl"> Collections</li>
+            <li className="flex items-center mt-3">
               <input
                 id="input1"
                 type="checkbox"
@@ -65,16 +65,16 @@ function Collections() {
               />
               <label htmlFor="input1">Flower</label>
             </li>
-            <li className="flex items-center">
+            <li className="flex items-center mt-3">
               <input id="input2" type="checkbox" className={checkBox} />
               <label htmlFor="input2">Flower</label>
             </li>
-            <li className="flex items-center">
+            <li className="flex items-center mt-3">
               <input id="input3" type="checkbox" className={checkBox} />
               <label htmlFor="input3">Flower</label>
             </li>
           </ul>
-          <div className="flex gap-10 flex-wrap justify-center">
+          <div className="grid gap-[50px] grid-cols-3">
             <CollectionItem />
             <CollectionItem />
             <CollectionItem />
