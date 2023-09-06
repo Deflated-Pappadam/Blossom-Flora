@@ -35,23 +35,23 @@ export default function Item() {
         </div>
 
         <div className="hidden md:flex w-full text-2xl font-extralight   items-center text-center justify-center gap-8  pb-5">
-          <span className="group relative inline-block ">
+          <span className="group relative inline-block hover:cursor-pointer ">
             <span className="text-black py-2">Home</span>
             <span className="absolute top-8 left-0 group-hover:w-full w-0 h-[2px] transition-all bg-black "></span>
           </span>
-          <span className="group relative inline-block ">
+          <span className="group relative inline-block hover:cursor-pointer">
             <span className="text-black py-2">About Us</span>
             <span className="absolute top-8 left-0 group-hover:w-full w-0 h-[2px] transition-all bg-black "></span>
           </span>
-          <span className="group relative inline-block ">
+          <span className="group relative inline-block hover:cursor-pointer">
             <span className="text-black py-2">Shop</span>
             <span className="absolute top-8 left-0 group-hover:w-full w-0 h-[2px] transition-all bg-black "></span>
           </span>
-          <span className="group relative inline-block ">
+          <span className="group relative inline-block hover:cursor-pointer">
             <span className="text-black py-2">Collection</span>
             <span className="absolute top-8 left-0 group-hover:w-full w-0 h-[2px] transition-all bg-black "></span>
           </span>
-          <span className="group relative inline-block ">
+          <span className="group relative inline-block hover:cursor-pointer">
             <span className="text-black py-2">Contact Us</span>
             <span className="absolute top-8 left-0 group-hover:w-full w-0 h-[2px] transition-all bg-black "></span>
           </span>

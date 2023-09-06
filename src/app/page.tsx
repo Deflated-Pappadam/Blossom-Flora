@@ -33,23 +33,23 @@ export default function Home() {
         </div>
 
         <div className="hidden md:flex w-full text-2xl font-extralight   items-center text-center justify-center gap-8  pb-5">
-          <span className="group relative inline-block ">
+          <span className="group relative inline-block hover:cursor-pointer">
             <span className="text-black py-2">Home</span>
             <span className="absolute top-8 left-0 group-hover:w-full w-0 h-[2px] transition-all bg-black "></span>
           </span>
-          <span className="group relative inline-block ">
+          <span className="group relative inline-block hover:cursor-pointer">
             <span className="text-black py-2">About Us</span>
             <span className="absolute top-8 left-0 group-hover:w-full w-0 h-[2px] transition-all bg-black "></span>
           </span>
-          <span className="group relative inline-block ">
+          <span className="group relative inline-block hover:cursor-pointer">
             <span className="text-black py-2">Shop</span>
             <span className="absolute top-8 left-0 group-hover:w-full w-0 h-[2px] transition-all bg-black "></span>
           </span>
-          <span className="group relative inline-block ">
+          <span className="group relative inline-block hover:cursor-pointer">
             <span className="text-black py-2">Collection</span>
             <span className="absolute top-8 left-0 group-hover:w-full w-0 h-[2px] transition-all bg-black "></span>
           </span>
-          <span className="group relative inline-block ">
+          <span className="group relative inline-block hover:cursor-pointer">
             <span className="text-black py-2">Contact Us</span>
             <span className="absolute top-8 left-0 group-hover:w-full w-0 h-[2px] transition-all bg-black "></span>
           </span>
@@ -137,7 +137,61 @@ export default function Home() {
           <Collections url="/Item04.jpg" name="Item name1" />
         </div>
       </section>
+      <footer
+       
+        className="w-full mt-10 md:min-h-[200px]   bg-slate-200 p-10 justify-end"
+      >
+        <div className="flex md:flex-row flex-col justify-between">
+          <div>
+            <div className="m-4 text-6xl text-black font-semibold">
+              Blossom Flora
+            </div>
+            <div className="m-4 text-3xl text-gray-500">
+              some great sayn by ritvik
+            </div>
+            <div className="m-4 text-2xl text-gray-500">
+              location, jksg kjf,dgdf
+            </div>
+          </div>
+          <div className="mt-10">
+            <div className="text-xl text-black font-semibold">Socials </div>
+            <a href="">
+              <div className="text-lg text-gray-500 hover:text-black cursor-pointer transition-all duration-600">
+                twitter: ddgsd
+              </div>
+            </a>
 
+            <a href="">
+              <div className="text-lg text-gray-500 hover:text-black cursor-pointer transition-all duration-600">
+                Insta : dsgsd
+              </div>
+            </a>
+            <a href="https://www.adithyakrishnan.com/">
+              <div className="text-lg text-gray-500 hover:text-black cursor-pointer transition-all duration-600">
+                Website : fdhfd
+              </div>
+            </a>
+          </div>
+          <div className="mt-10">
+            <div className="text-xl text-black font-semibold">Contact Us</div>
+            <a href="">
+              <div className="text-lg text-gray-500 hover:text-black cursor-pointer transition-all duration-600">
+                Phone:
+              </div>
+            </a>
+            <a href="">
+              <div className="text-lg text-gray-500 hover:text-black cursor-pointer transition-all duration-600">
+                Adress 1
+              </div>
+            </a>
+            <a href="">
+              <div className="text-lg text-gray-500 hover:text-black cursor-pointer transition-all duration-600">
+                adress 2
+              </div>
+            </a>
+          </div>
+        </div>
+      </footer>
     </main>
   );
 }
