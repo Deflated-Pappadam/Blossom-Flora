@@ -138,8 +138,7 @@ export default function Home() {
         </div>
       </section>
       <footer
-       
-        className="w-full mt-10 md:min-h-[200px]   bg-slate-200 p-10 justify-end"
+        className="w-full mt-10 md:min-h-[200px]   bg-slate-100 p-10 justify-end"
       >
         <div className="flex md:flex-row flex-col justify-between">
           <div>
