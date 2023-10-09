@@ -3,6 +3,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 
 export default function Navbar() {
@@ -41,32 +42,33 @@ export default function Navbar() {
                 </div>
                 {/* Icons */}
                 <div className="flex md:gap-6 gap-2 items-center h-full my-auto md:pt-3">
-                    <Image src="/search.svg" alt="Logo" width={30} height={30} />
-                    <Image src="/cart.png" alt="Logo" width={30} height={30} />
+                <Link href="/user"><Image src="/profile3.png" alt="Logo" width={30} height={30} /></Link>
+                    <Link href="/cart"> <Image src="/cart.png" alt="Logo" width={30} height={30} /></Link>
+                   
                 </div>
             </div>
 
             <div className="hidden md:flex w-full text-2xl font-extralight   items-center text-center justify-center gap-8  pb-5">
-                <span className="group relative inline-block hover:cursor-pointer">
+                <Link href='/' className="group relative inline-block hover:cursor-pointer">
                     <span className="text-black py-2">Home</span>
                     <span className="absolute top-8 left-0 group-hover:w-full w-0 h-[2px] transition-all bg-black "></span>
-                </span>
-                <span className="group relative inline-block hover:cursor-pointer">
+                </Link>
+                <Link href='/#aboutUs' className="group relative inline-block hover:cursor-pointer">
                     <span className="text-black py-2">About Us</span>
                     <span className="absolute top-8 left-0 group-hover:w-full w-0 h-[2px] transition-all bg-black "></span>
-                </span>
-                <span className="group relative inline-block hover:cursor-pointer">
+                </Link>
+                <Link href='/' className="group relative inline-block hover:cursor-pointer">
                     <span className="text-black py-2">Shop</span>
                     <span className="absolute top-8 left-0 group-hover:w-full w-0 h-[2px] transition-all bg-black "></span>
-                </span>
-                <span className="group relative inline-block hover:cursor-pointer">
+                </Link>
+                <Link href='/#collections' className="group relative inline-block hover:cursor-pointer">
                     <span className="text-black py-2">Collection</span>
                     <span className="absolute top-8 left-0 group-hover:w-full w-0 h-[2px] transition-all bg-black "></span>
-                </span>
-                <span className="group relative inline-block hover:cursor-pointer">
+                </Link>
+                <Link href='/#contactUs' className="group relative inline-block hover:cursor-pointer">
                     <span className="text-black py-2">Contact Us</span>
                     <span className="absolute top-8 left-0 group-hover:w-full w-0 h-[2px] transition-all bg-black "></span>
-                </span>
+                </Link>
             </div>
             <div
                     className="overflow-hidden md:hidden transition-all delay-600 bg-slate-100"
