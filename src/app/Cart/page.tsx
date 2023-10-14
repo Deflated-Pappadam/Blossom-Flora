@@ -1,9 +1,3 @@
-import Carousal from "@/components/Carousal";
-import Itembox from "@/components/Itembox";
-import Image from "next/image";
-import Thumbnails from "@/components/Thumbnails";
-import ThumbMob from "@/components/ThumbMob";
-import Collections from "@/components/Collections";
 
 import React from "react";
 import Navbar from "@/components/Navbar";

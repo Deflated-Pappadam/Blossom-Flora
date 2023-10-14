@@ -42,9 +42,12 @@ export default function Navbar() {
                 </div>
                 {/* Icons */}
                 <div className="flex md:gap-6 gap-2 items-center h-full my-auto md:pt-3">
-                <Link href="/user"><Image src="/profile3.png" alt="Logo" width={30} height={30} /></Link>
-                    <Link href="/cart"> <Image src="/cart.png" alt="Logo" width={30} height={30} /></Link>
-                   
+                    <Link href="/user">
+                        <Image src="/profile3.png" alt="Logo" width={30} height={30} />
+                    </Link>
+                    <Link href="/cart"> 
+                        <Image src="/cart.png" alt="Logo" width={30} height={30} />
+                        </Link> 
                 </div>
             </div>
 
@@ -53,19 +56,19 @@ export default function Navbar() {
                     <span className="text-black py-2">Home</span>
                     <span className="absolute top-8 left-0 group-hover:w-full w-0 h-[2px] transition-all bg-black "></span>
                 </Link>
-                <Link href='/#aboutUs' className="group relative inline-block hover:cursor-pointer">
+                <Link href='/' className="group relative inline-block hover:cursor-pointer">
                     <span className="text-black py-2">About Us</span>
                     <span className="absolute top-8 left-0 group-hover:w-full w-0 h-[2px] transition-all bg-black "></span>
                 </Link>
-                <Link href='/' className="group relative inline-block hover:cursor-pointer">
+                <Link href='/collections' className="group relative inline-block hover:cursor-pointer">
                     <span className="text-black py-2">Shop</span>
                     <span className="absolute top-8 left-0 group-hover:w-full w-0 h-[2px] transition-all bg-black "></span>
                 </Link>
-                <Link href='/#collections' className="group relative inline-block hover:cursor-pointer">
+                <Link href='/#collectionSection' className="group relative inline-block hover:cursor-pointer">
                     <span className="text-black py-2">Collection</span>
                     <span className="absolute top-8 left-0 group-hover:w-full w-0 h-[2px] transition-all bg-black "></span>
                 </Link>
-                <Link href='/#contactUs' className="group relative inline-block hover:cursor-pointer">
+                <Link href='/' className="group relative inline-block hover:cursor-pointer">
                     <span className="text-black py-2">Contact Us</span>
                     <span className="absolute top-8 left-0 group-hover:w-full w-0 h-[2px] transition-all bg-black "></span>
                 </Link>

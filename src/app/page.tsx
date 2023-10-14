@@ -6,7 +6,7 @@ import Itembox from "@/components/Itembox";
 import Image from "next/image";
 import Thumbnails from "@/components/Thumbnails";
 import ThumbMob from "@/components/ThumbMob";
-import Collections from "@/components/Collections";
+import HomeCollections from "@/components/HomeCollections";
 import Navbar from "@/components/Navbar";
 
 export default function Home() {
@@ -88,19 +88,19 @@ export default function Home() {
         </div>
 
       </section>
-      <section id="collections">
+      <section id="collectionSection">
         <div className="mt-[80px] text-center text-black text-2xl md:text-5xl font-caslon">
           Collections
         </div>
         <div className="flex md:w-[75%] mx-auto p-5 justify-center gap-10  md:overflow-hidden overflow-scroll flex-wrap">
-          <Collections url="/Item01.jpg" name="Item name1" />
-          <Collections url="/Item02.jpg" name="Item name1" />
-          <Collections url="/Item03.jpg" name="Item name1" />
-          <Collections url="/Item04.jpg" name="Item name1" />
-          <Collections url="/Item01.jpg" name="Item name1" />
-          <Collections url="/Item02.jpg" name="Item name1" />
-          <Collections url="/Item03.jpg" name="Item name1" />
-          <Collections url="/Item04.jpg" name="Item name1" />
+          <HomeCollections url="/Item01.jpg" name="Item name1" />
+          <HomeCollections url="/Item02.jpg" name="Item name1" />
+          <HomeCollections url="/Item03.jpg" name="Item name1" />
+          <HomeCollections url="/Item04.jpg" name="Item name1" />
+          <HomeCollections url="/Item01.jpg" name="Item name1" />
+          <HomeCollections url="/Item02.jpg" name="Item name1" />
+          <HomeCollections url="/Item03.jpg" name="Item name1" />
+          <HomeCollections url="/Item04.jpg" name="Item name1" />
         </div>
       </section>
       <footer
