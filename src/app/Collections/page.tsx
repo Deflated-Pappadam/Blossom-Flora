@@ -1,10 +1,34 @@
-import React from "react";
+"use client"
+
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import CollectionItem from "@/components/CollectionItem";
 import Navbar from "@/components/Navbar";
+import { DocumentData, collection, onSnapshot } from "firebase/firestore";
+import { db } from "../../../firebase";
+
+type data = {
+  id: string
+  data: DocumentData
+}
 
 function Collections() {
+  const [allData, setAllData] = useState<data[]>([]);
   const checkBox = "mr-5  sm:w-[20px] sm:h-[20px]";
+
+  useEffect(() => {
+    const unsub = onSnapshot(collection(db, "collection"), (snapshot) => {
+      setAllData(
+        snapshot.docs.map((doc) => {
+          console.log(doc.data())
+          return  {id: doc.id, data: doc.data()};
+        })
+      );
+    });
+
+    return () => unsub()
+  }, [])
+
   return (
     <div className="w-full">
       <main className="flex w-full h-full min-h-full flex-col bg-slate-50">
@@ -43,15 +67,11 @@ function Collections() {
             </ul>
           </form>
           <div className="w-full mt-5 grid gap-[2.5em] md:grid-cols-[repeat(auto-fill,400px)] grid-cols-[repeat(auto-fill,250px)] justify-center">
-            <CollectionItem />
-            <CollectionItem />
-            <CollectionItem />
-            <CollectionItem />
-            <CollectionItem />
-            <CollectionItem />
-            <CollectionItem />
-            <CollectionItem />
-            <CollectionItem />
+            {
+              allData.map((item) => {
+                return <CollectionItem ImageUrl={item.data.ImageUrl} name={item.data.Name} price={item.data.Price} id={item.id}/>
+              })
+            }
           </div>
         </section>
       </main>

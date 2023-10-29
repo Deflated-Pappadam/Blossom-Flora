@@ -1,10 +1,26 @@
 "use client";
 
+import { DocumentData, doc, getDoc } from "firebase/firestore";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { db } from "../../../../firebase";
 
-export default function Item() {
+export default function Item({ params }: {params: {id: string}}) {
   const [quantity, setQuantity] = useState(1);
+
+  const [data,setData] = useState<DocumentData>()
+
+  const dataFetch = async () => {
+    const docRef = doc(db, "collection", params.id);
+    const docSnap = await getDoc(docRef);
+    if(docSnap.exists()) {
+      console.log(data)
+      setData(docSnap.data())
+    }
+    else {
+      console.log("No such doc");
+    }
+  }
 
   const handleIncrease = () => {
     setQuantity(quantity + 1);
