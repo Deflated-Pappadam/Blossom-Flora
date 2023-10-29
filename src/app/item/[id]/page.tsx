@@ -1,6 +1,6 @@
 "use client";
 
-import { DocumentData, doc, getDoc } from "firebase/firestore";
+import { DocumentData, collection, doc, getDoc, onSnapshot, query, where } from "firebase/firestore";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { db } from "../../../../firebase";
@@ -10,17 +10,13 @@ export default function Item({ params }: {params: {id: string}}) {
 
   const [data,setData] = useState<DocumentData>()
 
-  const dataFetch = async () => {
-    const docRef = doc(db, "collection", params.id);
-    const docSnap = await getDoc(docRef);
-    if(docSnap.exists()) {
-      console.log(data)
-      setData(docSnap.data())
-    }
-    else {
-      console.log("No such doc");
-    }
-  }
+  useEffect(() => {
+    const unsub = onSnapshot(doc(db, "collection", params.id), (doc) => {
+      setData(doc.data())
+    })
+    
+    return () => unsub()
+  }, [])
 
   const handleIncrease = () => {
     setQuantity(quantity + 1);
@@ -77,18 +73,19 @@ export default function Item({ params }: {params: {id: string}}) {
         <div className="md:w-[50%] md:h-full h-[50%] flex justify-center items-center mx-auto my-auto  overflow-hidden">
           <div>
             <Image
-              src="/Item01.jpg"
+              src={data?.ImageUrl}
               alt="Item01"
               width={1080}
               height={900}
               className="flex md:w-[800px] justify-center h-full object-cover "
+
             />
           </div>
         </div>
         <div className="flex flex-col md:w-[50%] h-full justify-center overflow-hidden">
           <div className="md:w-[70%] h-full md:h-fit ">
             <div className="md:text-xl  font-light">Flowers</div>
-            <div className="text-4xl font-text">Item Flowers 01</div>
+            <div className="text-4xl font-text">{data?.Name}</div>
             <div className="text-xl font-light mt-5">
               A soft, warm hoodie from South America thats perfect for keeping
               you cozy. A soft, warm hoodie from South America thats perfect for
@@ -121,7 +118,7 @@ export default function Item({ params }: {params: {id: string}}) {
                 </button>
               </div>
             </div>
-            <div className="text-3xl text-gray-800 my-5">€36.50</div>
+            <div className="text-3xl text-gray-800 my-5">${data?.Price}</div>
             <div className="group md:w-[60%] md:h-[60px] w-[80%] h-[50px] bg-black rounded-md hover:border-[1px] border-black hover:bg-white transition-all">
               <div className="flex w-full h-full justify-center items-center text-white group-hover:text-black ">
                 Book Now
