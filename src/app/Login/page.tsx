@@ -1,22 +1,29 @@
 "use client";
 
 import Navbar from "@/components/Navbar";
-import Image from "next/image";
 import { useState } from "react";
 import { auth } from "../../../firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { curruser, setUser } from "../../../utils/users";
+import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
+import { useRouter } from "next/navigation";
 
 export default function Login() {
+  const { push } = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  onAuthStateChanged(auth, (user) => {
+    if(user) {
+      push("/")
+    }
+  })
+
   const handleLogin = () => {
+    const user = auth.currentUser
+    console.log(user);
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
-         setUser(userCredential.user);
-
+        push("/");
         // ...
       })
       .catch((error) => {

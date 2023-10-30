@@ -8,8 +8,15 @@ import Thumbnails from "@/components/Thumbnails";
 import ThumbMob from "@/components/ThumbMob";
 import HomeCollections from "@/components/HomeCollections";
 import Navbar from "@/components/Navbar";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../../firebase";
 
 export default function Home() {
+  onAuthStateChanged(auth, (user) => {
+    if(user) {
+      console.log(user);
+    }
+  })
   return (
     <main className="flex w-full h-full min-h-full flex-col bg-slate-50">
       {/* Desktop Warning for Customers Hidden in Mobile View */}
