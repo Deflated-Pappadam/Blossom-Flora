@@ -68,7 +68,7 @@ function Collections() {
           <div className="w-full mt-5 grid gap-[2.5em] md:grid-cols-[repeat(auto-fill,400px)] grid-cols-[repeat(auto-fill,250px)] justify-center">
             {
               allData.map((item) => {
-                return <CollectionItem ImageUrl={item.data.ImageUrl} name={item.data.Name} price={item.data.Price} id={item.id}/>
+                return <CollectionItem key={item.id} ImageUrl={item.data.ImageUrl} name={item.data.Name} price={item.data.Price} id={item.id}/>
               })
             }
           </div>
