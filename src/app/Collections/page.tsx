@@ -1,7 +1,6 @@
 "use client"
 
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
 import CollectionItem from "@/components/CollectionItem";
 import Navbar from "@/components/Navbar";
 import { DocumentData, collection, onSnapshot } from "firebase/firestore";
