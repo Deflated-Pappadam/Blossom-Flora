@@ -19,7 +19,9 @@ export default function Item({ params }: {params: {id: string}}) {
   }, [])
 
   const handleIncrease = () => {
-    setQuantity(quantity + 1);
+    if(quantity<999) {
+      setQuantity(quantity + 1);
+    }
   };
 
   const handleDecrease = () => {
@@ -69,21 +71,21 @@ export default function Item({ params }: {params: {id: string}}) {
           </span>
         </div>
       </nav>
-      <div className="w-full h-full flex md:flex-row flex-col  md:mx-10 mx-4 justify-start ">
+      <div className="w-full h-full flex md:flex-row flex-col  md:mx-10 justify-start ">
         <div className="md:w-[50%] md:h-full h-[50%] flex justify-center items-center mx-auto my-auto  overflow-hidden">
           <div>
             <Image
               src={data?.ImageUrl}
               alt="Item01"
-              width={1080}
-              height={900}
-              className="flex md:w-[800px] justify-center h-full object-cover "
+              width={600}
+              height={800}
+              className="flex md:w-[500px] w-[300px]  justify-center h-[600px] object-fit "
 
             />
           </div>
         </div>
-        <div className="flex flex-col md:w-[50%] h-full justify-center overflow-hidden">
-          <div className="md:w-[70%] h-full md:h-fit ">
+        <div className="flex flex-col md:w-[50%] h-full justify-center overflow-hidden p-4">
+          <div className="md:w-[80%] h-full md:h-fit ">
             <div className="md:text-xl  font-light">Flowers</div>
             <div className="text-4xl font-text">{data?.Name}</div>
             <div className="text-xl font-light mt-5">
@@ -106,7 +108,7 @@ export default function Item({ params }: {params: {id: string}}) {
                 <input
                   title="test"
                   type="number"
-                  className="w-16 px-4 py-2 border text-center"
+                  className="w-20 px-4 py-2 border text-center"
                   value={quantity}
                   onChange={(e) => setQuantity(parseInt(e.target.value))}
                 />
@@ -130,8 +132,6 @@ export default function Item({ params }: {params: {id: string}}) {
                 Add to Cart
               </div>
             </div>
-
-
           </div>
         </div>
       </div>

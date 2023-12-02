@@ -5,7 +5,12 @@ const nextConfig = {
             {
                 protocol:"https",
                 hostname:"images.pexels.com" ,
-                pathname: '/photos/**'
+            }
+        ],
+        remotePatterns: [
+            {
+                protocol:'https',
+                hostname: 'firebasestorage.googleapis.com',   
             }
         ]
     }

@@ -10,8 +10,8 @@ type ItemProps = {
 
 export default function CollectionItem({ImageUrl, name, price, id}: ItemProps) {
   return (
-    <a href={`/item/${id}`} className='relative md:w-[300px] md:h-[360px] w-[250px] h-[250px]'>
-          <Image src={ImageUrl} alt={'Product Image'} width="300" height="400" className='md:h-[300px] h-[250px] object-cover'/>
+    <a href={`/item/${id}`} className='relative'>
+          <Image src={ImageUrl} alt={'Product Image'} width={300} height={300} className='md:h-[250px] h-[200px] md:w-[250px] w-[200px] object-cover'/>
         <div>
           <h1 className='md:text-xl text-md'>{name}</h1>
           <p className='md:text-md text-sm'>${price}</p>
