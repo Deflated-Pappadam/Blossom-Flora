@@ -8,6 +8,7 @@ import { doc, setDoc} from "firebase/firestore";
 import { useRouter } from "next/navigation";
 
 export default function SignUp() {
+
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [name, setName] = useState('');
@@ -20,6 +21,7 @@ export default function SignUp() {
       name: name,
       phone: phone
     })
+    
   }
 
 
