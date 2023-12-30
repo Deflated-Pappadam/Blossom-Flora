@@ -51,11 +51,7 @@ export default function Item({ params }: {params: {id: string}}) {
             <div className="md:text-xl  font-light">Flowers</div>
             <div className="text-4xl font-text">{data?.Name}</div>
             <div className="text-xl font-light mt-5">
-              A soft, warm hoodie from South America thats perfect for keeping
-              you cozy. A soft, warm hoodie from South America thats perfect for
-              keeping you cozy. A soft, warm hoodie from South America thats
-              perfect for keeping you cozy. A soft, warm hoodie from South
-              America thats perfect for keeping you cozy.
+              {data?.desc}
             </div> 
             <div className="flex flex-col py-5 font-light">
               <div className="text-3xl  py-2">Quantity</div>

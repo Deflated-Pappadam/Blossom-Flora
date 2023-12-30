@@ -11,11 +11,9 @@ export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  onAuthStateChanged(auth, (user) => {
-    if(user) {
-      push("/")
-    }
-  })
+  if(auth.currentUser){
+    push("/")
+  }
 
   const handleLogin = () => {
     const user = auth.currentUser
@@ -69,11 +67,9 @@ export default function Login() {
             <button className="w-[70%]  bg-black m-4 p-3 text-white text-[20px] font-light text-center " onClick={handleLogin}>
               SIGN IN
             </button>
-            <a className="font-light my-2 text-[17px]" href="/SignUp">Create Account</a>
+            <a className="font-light my-2 text-[17px]" href="/signup">Create Account</a>
           </div>
         </div>
-
-     
       </section>
     </div>
   );
