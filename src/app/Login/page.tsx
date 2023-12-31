@@ -1,7 +1,7 @@
 "use client";
 
 import Navbar from "@/components/Navbar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { auth } from "../../../firebase";
 import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 import { useRouter } from "next/navigation";
@@ -11,9 +11,12 @@ export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  if(auth.currentUser){
-    push("/")
-  }
+  useEffect(() => {
+    const unsubscribe = () => onAuthStateChanged(auth, (user) => {
+        if (user) push("/")
+      })
+    return unsubscribe();
+  })
 
   const handleLogin = () => {
     const user = auth.currentUser

@@ -1,7 +1,20 @@
-import React from "react";
+"use client"
+import React, { useEffect } from "react";
 import Navbar from "@/components/Navbar";
+import { auth } from "../../../firebase";
+import { useRouter, redirect } from "next/navigation";
+import { onAuthStateChanged } from "firebase/auth";
 
 export default function Cart() {
+  
+  
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (!user) redirect("/")
+    })
+    return unsubscribe;
+  })
+
   const cartItems = [
     { id: 1, name: "Product 1", price: 10 },
     { id: 2, name: "Product 2", price: 20 },

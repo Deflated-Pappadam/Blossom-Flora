@@ -2,10 +2,11 @@
 
 import Navbar from "@/components/Navbar";
 import { auth, db } from "../../../firebase";
-import { User, createUserWithEmailAndPassword } from "firebase/auth";
-import { useState } from "react";
+import { User, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { useEffect, useState } from "react";
 import { doc, setDoc} from "firebase/firestore";
 import { useRouter } from "next/navigation";
+
 
 export default function SignUp() {
 
@@ -13,25 +14,29 @@ export default function SignUp() {
   const [phone, setPhone] = useState('');
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
-  const router = useRouter()
+  const { push } = useRouter()
 
   async function createDoc (user: User) {
-    return await setDoc(doc(db, "users", user.uid), {
-      userId: user.uid,
+    await setDoc(doc(db, "users", user.uid), {
       name: name,
       phone: phone
     })
-    
   }
 
-
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) push("/")
+    })
+    return unsubscribe;
+  })
+  
   const handleSignUp = async () => {
     createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
         // Signed in 
             const user = userCredential.user
             createDoc(user);
-            router.push("/");
+            push("/");
         // ...
         })
         .catch((error) => {
@@ -97,7 +102,7 @@ export default function SignUp() {
             <button className="w-[70%] rounded-md bg-black  text-white text-[20px] font-light text-center my-4 p-4" onClick={handleSignUp}>
               CREATE
             </button>
-            <a className="font-light my-2 text-[17px]" href="/Login">
+            <a className="font-light my-2 text-[17px]" href="/login">
               Back To Sign In
             </a>
           </div>
