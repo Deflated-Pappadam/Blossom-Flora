@@ -1,36 +1,49 @@
 "use client"
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
-import { auth } from "../../../firebase";
+import { auth, db } from "../../../firebase";
 import { useRouter, redirect } from "next/navigation";
-import { onAuthStateChanged } from "firebase/auth";
+import { User, onAuthStateChanged } from "firebase/auth";
+import { DocumentData, collection, onSnapshot, query, where } from "firebase/firestore";
 
 export default function Cart() {
   
-  
+  const [user,setUser] = useState<User | null>(null)
+  const [cartItems, setCartItems] = useState<DocumentData>([])
+
+  const { push } = useRouter();
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (!user) redirect("/")
+      if (!user)  push("/")
+      else setUser(user);
     })
     return unsubscribe;
-  })
+  }, [user])
+  
 
-  const cartItems = [
-    { id: 1, name: "Product 1", price: 10 },
-    { id: 2, name: "Product 2", price: 20 },
-  ];
+  useEffect(() => {
+    const unsubscribe = () => {
+      try{
+        if (!user) return
+        const q = query(collection(db, "cart"), where("UserId", "==", user?.uid))
+        return onSnapshot(q, (snapshot)=>{
+          setCartItems(snapshot.docs.map((doc) => {
+            console.log(doc.data());
+            return doc.data();
+          }))
+        })
+      }
+      catch(e){
+        console.log(e);
+      }
+    }
+    return unsubscribe();
+  }, [user])
+
 
   return (
     <main className="flex w-full h-full min-h-screen flex-col bg-slate-50 ">
-      {/* Desktop Warning for Customers Hidden in Mobile View */}
-      <div className="w-full font-light text-lg border-b-2 justify-start p-2 hidden md:flex">
-        <div className="w-[80%] mx-auto">
-          oi guys we dont have all kerala delivery and order 2 days before.
-        </div>
-      </div>
-
-      <Navbar />
-
+      {/* Desktop Warning for Customers Hidden in Mobile View */}      
       <section
         id="cart"
         className="flex flex-col w-full h-full justify-center items-center"
@@ -59,8 +72,10 @@ export default function Cart() {
               <div>Total</div>
             </div>
 
-          
-            <ul>
+          {/* 
+            cartItems = {UserId, Name, Price, Quantity}
+          */}
+            {/* <ul>
               {cartItems.map((item) => (
                 <li key={item.id} className="flex w-full justify-between ">
                   <div className="flex  w-[45%] ">img placeholder</div>
@@ -74,7 +89,7 @@ export default function Cart() {
                   </div>
                 </li>
               ))}
-            </ul>
+            </ul> */}
           </div>
         )}
       </section>
