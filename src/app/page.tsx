@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Carousal from "@/components/Carousal";
 import Itembox from "@/components/Itembox";
 import Image from "next/image";
@@ -13,21 +13,9 @@ import { auth } from "../../firebase";
 import Footer from "@/components/Footer";
 
 export default function Home() {
-  onAuthStateChanged(auth, (user) => {
-    if(user) {
-      console.log(user);
-    }
-  })
   return (
     <main className="flex w-full h-full min-h-full flex-col bg-slate-50">
       {/* Desktop Warning for Customers Hidden in Mobile View */}
-      <div className="w-full font-light text-lg border-b-2 justify-start p-2 hidden md:flex">
-        <div className="w-[80%] mx-auto">
-          oi guys we dont have all kerala delivery and order 2 days before.
-        </div>
-      </div>
-
-    <Navbar />
 
       {/* Carousal */}
       <section id="carousal" className="w-full h-full ">

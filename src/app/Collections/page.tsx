@@ -19,7 +19,6 @@ function Collections() {
     const unsub = onSnapshot(collection(db, "collection"), (snapshot) => {
       setAllData(
         snapshot.docs.map((doc) => {
-          console.log(doc.data())
           return  {id: doc.id, data: doc.data()};
         })
       );
@@ -32,13 +31,6 @@ function Collections() {
     <div className="w-full">
       <main className="flex w-full h-full min-h-full flex-col bg-slate-50">
         {/* Desktop Warning for Customers Hidden in Mobile View */}
-        <div className="w-full font-light text-lg border-b-2 justify-start p-2 hidden md:flex">
-          <div className="w-[80%] mx-auto">
-            oi guys we dont have all kerala delivery and order 2 days before.
-          </div>
-        </div>
-
-        <Navbar/>
         
         <section className="pt-2 flex max-[1200px]:flex-col max-[1200px]:items-center bg-white relative">
           <form className="min-[1200px]:pl-10 min-[1200px]:pr-2 w-[clamp(250px,375px,90%)]">

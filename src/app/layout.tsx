@@ -1,3 +1,4 @@
+import Navbar from '@/components/Navbar'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
@@ -50,6 +51,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${logo.variable} ${text.variable} font-sans`}>
       <body className={inter.className}>
+        
+      <div className="w-full font-light text-lg border-b-2 justify-start p-2 hidden md:flex">
+        <div className="w-[80%] mx-auto">
+          oi guys we dont have all kerala delivery and order 2 days before.
+        </div>
+      </div>
+
+    <Navbar />
           {children}
         </body>
     </html>

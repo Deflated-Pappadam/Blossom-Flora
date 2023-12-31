@@ -51,7 +51,6 @@ export default function SignUp() {
   return (
     <div className="flex flex-col w-full h-full">
       <section className="w-full h-full min-h-screen flex flex-col justify-center items-center">
-        <Navbar/>
         <div className="flex flex-col justify-center items-center my-[50px] w-full ">
           <div className="text-[40px] font-text text-center my-5">
             Create Account

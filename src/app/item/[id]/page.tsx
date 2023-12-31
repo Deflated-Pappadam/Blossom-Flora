@@ -32,7 +32,6 @@ export default function Item({ params }: {params: {id: string}}) {
   };
   return (
     <div className="w-full md:min-h-screen flex flex-col">
-     <Navbar/>
       <div className="w-full h-full flex md:flex-row flex-col  md:px-10 justify-center item-center">
         <div className="md:w-[50%] md:h-full h-[50%] flex justify-center items-center mx-auto my-auto  overflow-hidden">
           <div>

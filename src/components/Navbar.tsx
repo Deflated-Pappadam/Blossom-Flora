@@ -1,9 +1,9 @@
 "use client";
 
-import {useState } from "react";
+import {useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { User, signOut } from "firebase/auth";
+import { User, onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../../firebase";
 
 export default function Navbar() {
@@ -27,6 +27,12 @@ export default function Navbar() {
   const  handleSignOut = () => {
     signOut(auth);
   }
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setUser(user);
+    })
+  })
 
   return (
     <nav className="flex w-full h-full">
@@ -87,7 +93,7 @@ export default function Navbar() {
             <div className="md:flex hidden text-3xl ">The </div>Blossom Flora
           </div>
           {/* Icons */}
-          {!user ? (
+          {user ? (
             // if user exist...add a logo to signout button
             <div className="flex md:gap-6 gap-2 items-center h-full my-auto md:pt-3">
               <Link href="/user">
