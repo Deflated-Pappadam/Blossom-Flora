@@ -1,10 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import {useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { User, signOut } from "firebase/auth";
+import { auth } from "../../firebase";
 
 export default function Navbar() {
+  const [user, setUser] = useState<User | null>(null);
   const [dropDown, setDropDown] = useState("none");
 
   const handleDropDown = () => {
@@ -14,11 +17,16 @@ export default function Navbar() {
       setDropDown("flex");
     }
   };
+
   const handleMouseLeave = () => {
     setTimeout(() => {
       setDropDown("flex");
     }, 700);
   };
+
+  const  handleSignOut = () => {
+    signOut(auth);
+  }
 
   return (
     <nav className="flex w-full h-full">
@@ -30,7 +38,12 @@ export default function Navbar() {
         }}
       >
         <div className="flex w-full  flex-col  mt-5  " id="navbar-default">
-          <div className="text-4xl justify-end items-end flex px-5" onClick={handleDropDown }>X</div>
+          <div
+            className="text-4xl justify-end items-end flex px-5"
+            onClick={handleDropDown}
+          >
+            X
+          </div>
           <div className="flex flex-col justify-center  items-start w-full h-full text-5xl ">
             <a href="/" className="p-7 hover:text-slate-700">
               HOME
@@ -74,14 +87,28 @@ export default function Navbar() {
             <div className="md:flex hidden text-3xl ">The </div>Blossom Flora
           </div>
           {/* Icons */}
-          <div className="flex md:gap-6 gap-2 items-center h-full my-auto md:pt-3">
-            <Link href="/user">
-              <Image src="/profile3.png" alt="Logo" width={30} height={30} />
-            </Link>
-            <Link href="/cart">
-              <Image src="/cart.png" alt="Logo" width={30} height={30} />
-            </Link>
-          </div>
+          {!user ? (
+            // if user exist...add a logo to signout button
+            <div className="flex md:gap-6 gap-2 items-center h-full my-auto md:pt-3">
+              <Link href="/user">
+                <Image src="/profile3.png" alt="Logo" width={30} height={30} />
+              </Link>
+              <Link href="/cart">
+                <Image src="/cart.png" alt="Logo" width={30} height={30} />
+              </Link>
+              <button onClick={handleSignOut}>Signout</button>
+            </div>
+          ) : (
+            //if user doesnt exist...change logo of icons according to the route
+            <div className="flex md:gap-6 gap-2 items-center h-full my-auto md:pt-3">
+              <Link href="/login">
+                <Image src="/profile3.png" alt="Logo" width={30} height={30} />
+              </Link>
+              <Link href="/signup">
+                <Image src="/cart.png" alt="Logo" width={30} height={30} />
+              </Link>
+            </div>
+          )}
         </div>
 
         <div className="hidden md:flex w-full text-xl font-extralight   items-center text-center justify-center gap-8  pb-5">
