@@ -2,8 +2,8 @@
 
 import Navbar from "@/components/Navbar";
 import { useEffect, useState } from "react";
-import { auth } from "../../../firebase";
-import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
+import { auth, getUser } from "../../../firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { useRouter } from "next/navigation";
 
 export default function Login() {
@@ -12,10 +12,9 @@ export default function Login() {
   const [password, setPassword] = useState('');
 
   useEffect(() => {
-    const unsubscribe = () => onAuthStateChanged(auth, (user) => {
-        if (user) push("/")
-      })
-    return unsubscribe();
+    return getUser((user) => {
+      if(user) push("/")
+    });
   })
 
   const handleLogin = () => {

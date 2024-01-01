@@ -3,8 +3,8 @@
 import {useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { User, onAuthStateChanged, signOut } from "firebase/auth";
-import { auth } from "../../firebase";
+import { User, signOut } from "firebase/auth";
+import { auth, getUser } from "../../firebase";
 
 export default function Navbar() {
   const [user, setUser] = useState<User | null>(null);
@@ -29,7 +29,7 @@ export default function Navbar() {
   }
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
+    return getUser((user) => {
       setUser(user);
     })
   })

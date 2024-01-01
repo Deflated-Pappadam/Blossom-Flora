@@ -14,7 +14,7 @@ import {
 } from "firebase/firestore";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import { auth, db } from "../../../../firebase";
+import { auth, db, getUser } from "../../../../firebase";
 import { User, onAuthStateChanged } from "firebase/auth";
 
 export default function Item({ params }: { params: { id: string } }) {
@@ -23,11 +23,7 @@ export default function Item({ params }: { params: { id: string } }) {
   const [data, setData] = useState<DocumentData>();
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setUser(user);
-    });
-
-    return unsubscribe;
+    return  getUser(user => setUser(user))
   }, [user]);
 
   useEffect(() => {
