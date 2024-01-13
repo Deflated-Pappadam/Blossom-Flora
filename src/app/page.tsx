@@ -15,14 +15,14 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <main className="flex w-full h-full min-h-full flex-col bg-slate-50">
-      {/* Desktop Warning for Customers Hidden in Mobile View */}
+      <Navbar />
 
-      {/* Carousal */}
       <section id="carousal" className="w-full h-full ">
         <Carousal />
       </section>
+
       <section id="bestSeller" className="w-full h-full">
-        <div className="w-full h-full">
+       
           <div className="w-full text-center text-3xl md:text-4xl font-caslon  my-10">
             Best Seller
           </div>
@@ -48,7 +48,7 @@ export default function Home() {
               description="from : Ritvik parayum"
             />
           </div>
-        </div>
+       
       </section>
 
       <section id="aboutUs" className="mt-10 flex flex-col md:flex-row ">
@@ -73,19 +73,18 @@ export default function Home() {
           <div className=" text-lg md:text-2xl font-light items-center w-[90%] md:w-[80%] mx-auto">
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industrys standard dummy text
-            <br/>
-            <br/>
+            <br />
+            <br />
             ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. 
-            <br/>
-            <br/>
+            and scrambled it to make a type specimen book.
+            <br />
+            <br />
             remaining essentially unchanged. It was popularised in the 1960s
             with the release of Letraset sheets containing Lorem Ipsum passages,
             and more recently with desktop publishing software like Aldus
             PageMaker including versions of Lorem Ipsum.
           </div>
         </div>
-
       </section>
       <section id="collectionSection">
         <div className="mt-[80px] text-center text-black text-2xl md:text-5xl font-caslon">
@@ -102,7 +101,7 @@ export default function Home() {
           <HomeCollections url="/Item04.jpg" name="Item name1" />
         </div>
       </section>
-     <Footer/>
+      <Footer />
     </main>
   );
 }
