@@ -14,8 +14,8 @@ import {
 } from "firebase/firestore";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import { auth, db, getUser } from "../../../../firebase";
-import { User, onAuthStateChanged } from "firebase/auth";
+import { db, getUser } from "../../../../firebase";
+import { User } from "firebase/auth";
 
 export default function Item({ params }: { params: { id: string } }) {
   const [quantity, setQuantity] = useState(1);
@@ -45,6 +45,17 @@ export default function Item({ params }: { params: { id: string } }) {
       setQuantity(quantity - 1);
     }
   };
+
+  const handleBooking = () => {
+    addDoc(collection(db, "/history"), {
+      Name: data?.Name,
+      quantity: quantity,
+      total: data?.Price * quantity
+    })
+    updateDoc(doc(db, '/collection', params.id), {
+      Stock: increment(quantity*-1)
+    })
+  }
 
   const handleAddToCart = async () => {
     try {
@@ -125,7 +136,7 @@ export default function Item({ params }: { params: { id: string } }) {
               ${data?.Price}
             </div>
             <div className="group md:mx-0 mx-auto md:w-[60%] md:h-[60px] w-[90%] h-[50px] bg-black rounded-md hover:border-[1px] border-black hover:bg-white transition-all">
-              <button className="flex w-full h-full justify-center items-center text-white group-hover:text-black ">
+              <button onClick={handleBooking} className="flex w-full h-full justify-center items-center text-white group-hover:text-black ">
                 Book Now
               </button>
             </div>

@@ -97,21 +97,23 @@ export default function Navbar() {
             // if user exist...add a logo to signout button
             <div className="flex md:gap-6 gap-2 items-center h-full my-auto md:pt-3">
               <Link href="/user">
-                <Image src="/profile3.png" alt="Logo" width={30} height={30} />
+                <Image src="/profile3.png" alt="user dashboard" width={30} height={30} />
               </Link>
               <Link href="/cart">
-                <Image src="/cart.png" alt="Logo" width={30} height={30} />
+                <Image src="/cart.png" alt="cart" width={30} height={30} />
               </Link>
-              <button onClick={handleSignOut}>Signout</button>
+              <button onClick={handleSignOut}>
+                <Image src="/logout.png" alt="signout" width={25} height={25}/>
+              </button>
             </div>
           ) : (
             //if user doesnt exist...change logo of icons according to the route
             <div className="flex md:gap-6 gap-2 items-center h-full my-auto md:pt-3">
               <Link href="/login">
-                <Image src="/profile3.png" alt="Logo" width={30} height={30} />
+                <Image src="/login.png" alt="login" width={30} height={30} />
               </Link>
               <Link href="/signup">
-                <Image src="/cart.png" alt="Logo" width={30} height={30} />
+                <Image src="/add-user.png" alt="signup" width={30} height={30} />
               </Link>
             </div>
           )}
