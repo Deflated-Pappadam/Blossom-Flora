@@ -20,16 +20,14 @@ function Carousal() {
         }}
       >
         <SplideSlide>
-          <Image src="/carousal (1).png" alt="Logo" placeholder="blur" blurDataURL= "/carousal (1).png"  width={1600} height={900} className='w-full h-[100%]  object-contain overflow-hidden' />
+          <Image src="/carousal (1).png" alt="Logo" placeholder="blur" blurDataURL= "/carousal (1).png"  width={1600} height={900} className='w-full h-full  object-contain overflow-hidden ' />
+        </SplideSlide>
+       
+        <SplideSlide>
+          <Image src="/carousal (3).png" alt="Logo" placeholder="blur" blurDataURL= "/carousal (3).png" width={1600} height={900} className='w-full h-full  object-contain ' />
         </SplideSlide>
         <SplideSlide>
-          <Image src="/carousal (2).png" alt="Logo" placeholder="blur" blurDataURL= "/carousal (2).png" fill />
-        </SplideSlide>
-        <SplideSlide>
-          <Image src="/carousal (1).png" alt="Logo" placeholder="blur" blurDataURL= "/carousal (1).png" fill />
-        </SplideSlide>
-        <SplideSlide>
-          <Image src="/carousal (2).png" alt="Logo" placeholder="blur" blurDataURL= "/carousal (2).png" fill />
+          <Image src="/carousal (4).png" alt="Logo" placeholder="blur" blurDataURL= "/carousal (4).png" width={1600} height={900} className='w-full h-full  object-contain ' />
         </SplideSlide>
       </Splide>
     </div>

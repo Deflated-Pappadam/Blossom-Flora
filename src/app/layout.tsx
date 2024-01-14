@@ -3,6 +3,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import localFont from "next/font/local"
+import { Toaster } from 'react-hot-toast'
 
 
 const logo = localFont({
@@ -50,6 +51,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${logo.variable} ${text.variable} font-sans`}>
+      
       <body className={inter.className}>
         
       <div className="w-full font-light text-lg border-b-2 justify-start p-2 hidden md:flex">
@@ -58,7 +60,6 @@ export default function RootLayout({
         </div>
       </div>
 
-    <Navbar />
           {children}
         </body>
     </html>

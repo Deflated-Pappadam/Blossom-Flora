@@ -50,7 +50,7 @@ export default function Navbar() {
           >
             X
           </div>
-          <div className="flex flex-col justify-center  items-start w-full h-full text-5xl ">
+          <div className="flex flex-col justify-center  items-start w-full h-full text-5xl  ">
             <a href="/" className="p-7 hover:text-slate-700">
               HOME
             </a>
@@ -119,7 +119,7 @@ export default function Navbar() {
           )}
         </div>
 
-        <div className="hidden md:flex w-full text-xl font-extralight   items-center text-center justify-center gap-8  pb-5">
+        <div className="hidden md:flex w-full text-xl font-extralight   items-center text-center justify-center gap-8  p-5">
           <Link
             href="/"
             className="group relative inline-block hover:cursor-pointer"
