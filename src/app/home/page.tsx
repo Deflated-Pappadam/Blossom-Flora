@@ -140,33 +140,7 @@ function Page() {
         </div>
       </section>
       
-      {/* <section id="bestSeller" className="w-full h-full  min-h-screen">
-       
-      <div className="text-[5rem] pathway-extreme p-10">Best Sellers</div>
-          <div className="flex w-[90%] md:w-[80%] mx-auto justify-between  overflow-x-scroll gap-2 no-scrollbar ">
-            <Itembox
-              url="/items/I (1).jpg"
-              name="Premium Car Dexk."
-              description="from : Ritvik parayum"
-            />
-            <Itembox
-              url="/items/I (2).jpg"
-              name="Holy communion - decorated candle."
-              description="from : Ritvik parayum"
-            />
-            <Itembox
-              url="/items/I (3).jpg"
-              name="Artifical Bouquet."
-              description="from : Ritvik parayum"
-            />
-            <Itembox
-              url="/items/I (4).jpg"
-              name="Red rose, dried Gixo. Bouqet"
-              description="from : Ritvik parayum"
-            />
-          </div>
-       
-      </section> */}
+     
 
       <section
         id="bestseller"
@@ -175,8 +149,8 @@ function Page() {
         <div className="md:text-[5rem] text-[3rem] pathway-extreme md:p-10 p-5">Best Sellers</div>
         <div className="md:w-[80%] w-full gap-8 justify-center p-2">
           <motion.section
-            className="flex w-full overflow-x-scroll  justify-start items-center gap-6 md:py-6 py-4"
-            style={{ overflowX: "scroll" }}
+            className="flex w-full overflow-x-scroll h-fit justify-start items-center gap-6 md:py-6 py-4"
+         
           >
             <BSBox ImageUrl="/items/I (5).jpg" name="Premium Car Deck." price={10} id="1"/>
             <BSBox ImageUrl="/items/I (2).jpg" name="Holy communion - decorated candle." price={10} id="1"/>
