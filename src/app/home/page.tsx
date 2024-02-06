@@ -59,7 +59,7 @@ function Page() {
         </div>
       </nav>
       <section id="hero" className="realtive flex flex-col w-full ">
-        <div className="flex w-full items-center justify-center absolute main md:text-[16rem] text-[3rem] text-[#2d2d2d] uppercase p-10 md:pt-[10]">
+        <div className="flex w-full items-center justify-center absolute main md:text-[15rem] text-[3rem] text-[#2d2d2d] uppercase p-10 md:pt-[10]">
           Blossom<span className="main-thick">Flora</span>
         </div>
         <div className="w-full flex md:flex-row flex-col md:max-h-[90vh] overflow-hidden">
