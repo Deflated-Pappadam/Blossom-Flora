@@ -74,7 +74,7 @@ export default function Navbar() {
         <div className="flex w-[80%] mx-auto  justify-between  rounded-[10px]">
           {/* Logo */}
           <div className="md:flex pt-3 hidden justify-start">
-            <Image src="/logo.png" alt="Logo" width={120} height={120} />
+            <Image src="/logo-black.png" alt="Logo" width={120} height={120} />
           </div>
           <button onClick={handleDropDown}>
             <div className="md:hidden flex pt-3 justify-start">
@@ -97,7 +97,7 @@ export default function Navbar() {
             // if user exist...add a logo to signout button
             <div className="flex md:gap-6 gap-2 items-center h-full my-auto md:pt-3">
               <Link href="/user">
-                <Image src="/profile3.png" alt="user dashboard" width={30} height={30} />
+                <Image src="/profile.png" alt="user dashboard" width={30} height={30} />
               </Link>
               <Link href="/cart">
                 <Image src="/cart.png" alt="cart" width={30} height={30} />
@@ -113,7 +113,7 @@ export default function Navbar() {
                 <Image src="/login.png" alt="login" width={30} height={30} />
               </Link>
               <Link href="/signup">
-                <Image src="/add-user.png" alt="signup" width={30} height={30} />
+                <Image src="/adduser.png" alt="signup" width={30} height={30} />
               </Link>
             </div>
           )}
@@ -125,28 +125,28 @@ export default function Navbar() {
             className="group relative inline-block hover:cursor-pointer"
           >
             <span className="text-black py-2">HOME</span>
-            <span className="absolute top-8 left-0 group-hover:w-full w-0 h-[2px] transition-all bg-black "></span>
+            <span className="absolute top-8 left-0 group-hover:w-full w-0 h-[2px] transition-all bg-black duration-300"></span>
           </Link>
           <Link
             href="/"
             className="group relative inline-block hover:cursor-pointer"
           >
             <span className="text-black py-2">ABOUT US</span>
-            <span className="absolute top-8 left-0 group-hover:w-full w-0 h-[2px] transition-all bg-black "></span>
+            <span className="absolute top-8 left-0 group-hover:w-full w-0 h-[2px] transition-all bg-black duration-300"></span>
           </Link>
           <Link
             href="/collections"
             className="group relative inline-block hover:cursor-pointer"
           >
             <span className="text-black py-2">SHOP</span>
-            <span className="absolute top-8 left-0 group-hover:w-full w-0 h-[2px] transition-all bg-black "></span>
+            <span className="absolute top-8 left-0 group-hover:w-full w-0 h-[2px] transition-all bg-black duration-300"></span>
           </Link>
           <Link
             href="/#collectionSection"
             className="group relative inline-block hover:cursor-pointer"
           >
             <span className="text-black py-2">COLLECTION</span>
-            <span className="absolute top-8 left-0 group-hover:w-full w-0 h-[2px] transition-all bg-black "></span>
+            <span className="absolute top-8 left-0 group-hover:w-full w-0 h-[2px] transition-all bg-black duration-300"></span>
           </Link>
           <Link
             href="/"

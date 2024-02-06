@@ -1,19 +1,25 @@
 "use client";
 import BSBox from "@/components/BSBox";
+import Navbar from "@/components/Navbar";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useRef, useState } from "react";
-
+import "@splidejs/splide/dist/css/splide.min.css";
+import Itembox from "@/components/Itembox";
+import ThumbMob from "@/components/ThumbMob";
+import Thumbnails from "@/components/Thumbnails";
+import HomeCollections from "@/components/HomeCollections";
+import Footer from "@/components/Footer";
 function Page() {
   const [cartCount, setCartCount] = useState(0);
   const scrollRef = useRef(null);
   const ghostRef = useRef(null);
 
   return (
-    <main className="bg-[#f5f2ef] w-full h-full min-h-screen">
-      <nav className="w-full flex justify-between items-center min-h-[5%] mx-auto uppercase  md:px-[6%] p-3 border-b border-black b-1 text-lg poppins-light">
+    <main className="flex flex-col bg-[#fdfdfd] w-full h-full min-h-screen overflow-x-hidden justify-center">
+      {/* <nav className="w-full flex justify-between items-center min-h-[5%] mx-auto uppercase  md:px-[6%] p-3 border-b border-black b-1 text-lg poppins-light">
         <div className="md:flex hidden gap-6 ">
           <div>Home</div>
           <div>Collection</div>
@@ -57,52 +63,180 @@ function Page() {
             <div className="p-1">({cartCount})</div>
           </Link>
         </div>
-      </nav>
-      <section id="hero" className="realtive flex flex-col w-full ">
-        <div className="flex w-full items-center justify-center absolute main md:text-[1400%] text-[3rem] text-[#2d2d2d] uppercase p-10 md:pt-[10]">
-        <span className="block md:inline">    Blossom<span className="main-thick">Flora</span></span>
+      </nav> */}
+      <div className="w-full font-light text-lg  justify-start  hidden md:flex mb-1">
+        <div className="w-[90%] mx-auto border-b-2 bg-[#2d2d2d] rounded-b-lg text-white text-md poppins-light p-1 text-center">
+          Home delivery available only for nearby locations , please order with
+          a two day notice
         </div>
-        <div className="w-full flex md:flex-row flex-col md:max-h-[90vh] overflow-hidden">
-          <div className="flex justify-end  items-end md:w-[50%] bg-[#deccc8] md:order-0 order-1">
-            <div className="flex flex-col md:text-4xl text-2xl poppins-regular md:p-[50px] p-5 pt-10 md:pb-[100px]">
+      </div>
+
+      <Navbar />
+      <section id="hero" className="realtive flex flex-col w-full ">
+        {/* <div className="flex w-full items-center justify-center absolute main md:text-[1400%] text-[3rem] text-[#2d2d2d] uppercase p-10 md:pt-[10]">
+        <span className="block md:inline">    Blossom<span className="main-thick">Flora</span></span>
+        </div> */}
+        <div className="w-full flex md:flex-row flex-col md:max-h-[80vh] overflow-hidden">
+          <div className="flex justify-end  items-center md:w-[50%] bg-[#ebf1fa] md:order-0 order-1 p-10">
+            <div className="flex flex-col md:text-[3.5rem] text-2xl poppins-regular leading-none pt-10">
               SPECIALISTS IN THE CREATION, CURATION AND SUPPLY OF HIGH-QUALITY,
               STYLISH AND UNIQUE FLOWERS.
-              <button className="w-fit h-fit px-4 p-2 bg-[#2d2d2d] text-lg text-white my-10 ">
+              <button className="w-fit h-fit px-4 p-2 bg-[#2d2d2d] text-lg text-white my-5 ">
                 COLLECTIONS
               </button>
             </div>
           </div>
-          <div className="md:max-w-[50%] overflow-hidden md:order-1 order-0 md:h-full w-full h-[300px]">
-            <Image
-              src="/items/I (4).jpg"
-              alt="Logo"
-              width={1080}
-              height={1080}
-              className="object-cover"
-            />
+          <div className="md:max-w-[50%] overflow-hidden md:order-1 order-0 md:h-full w-full ">
+            <div className="w-full h-full">
+              <Splide
+                options={{
+                  type: "fade",
+                  rewind: true,
+                  autoplay: true,
+                  interval: 2000,
+                  arrows: false,
+                  lazyLoad: true,
+                  speed: 1000,
+                  rewindSpeed: 1000,
+                }}
+              >
+                <SplideSlide>
+                  <div className="max-h-[70vh] ">
+                    <Image
+                      src="/items/I (3).jpg"
+                      alt="Logo"
+                      width={1080}
+                      height={1080}
+                      className=" object-fit   "
+                    />
+                  </div>
+                </SplideSlide>
+                <SplideSlide>
+                  <div className="max-h-[70vh] ">
+                    <Image
+                      src="/items/I (4).jpg"
+                      alt="Logo"
+                      width={1080}
+                      height={1080}
+                      className=" object-fit   "
+                    />
+                  </div>
+                </SplideSlide>
+                <SplideSlide>
+                  <div className="max-h-[70vh] ">
+                    <Image
+                      src="/items/I (6).jpg"
+                      alt="Logo"
+                      width={1080}
+                      height={1080}
+                      className=" object-fit   "
+                    />
+                  </div>
+                </SplideSlide>
+
+              </Splide>
+            </div>
           </div>
         </div>
       </section>
+      
+      {/* <section id="bestSeller" className="w-full h-full  min-h-screen">
+       
+      <div className="text-[5rem] pathway-extreme p-10">Best Sellers</div>
+          <div className="flex w-[90%] md:w-[80%] mx-auto justify-between  overflow-x-scroll gap-2 no-scrollbar ">
+            <Itembox
+              url="/items/I (1).jpg"
+              name="Premium Car Dexk."
+              description="from : Ritvik parayum"
+            />
+            <Itembox
+              url="/items/I (2).jpg"
+              name="Holy communion - decorated candle."
+              description="from : Ritvik parayum"
+            />
+            <Itembox
+              url="/items/I (3).jpg"
+              name="Artifical Bouquet."
+              description="from : Ritvik parayum"
+            />
+            <Itembox
+              url="/items/I (4).jpg"
+              name="Red rose, dried Gixo. Bouqet"
+              description="from : Ritvik parayum"
+            />
+          </div>
+       
+      </section> */}
+
       <section
         id="bestseller"
-        className="flex flex-col  items-center min-h-screen bg-[#aeb5b4]"
+        className="flex flex-col  items-center  bg-[#fafafa]"
       >
-        <div className="text-[5rem] pathway-extreme p-10">Best Sellers</div>
-        <div className="md:w-[80%] w-full gap-8 justify-center">
+        <div className="md:text-[5rem] text-[3rem] pathway-extreme md:p-10 p-5">Best Sellers</div>
+        <div className="md:w-[80%] w-full gap-8 justify-center p-2">
           <motion.section
-            className="flex w-full overflow-x-scroll  justify-start items-center gap-6 py-6 " style={{ overflowX: 'scroll' }}
+            className="flex w-full overflow-x-scroll  justify-start items-center gap-6 md:py-6 py-4"
+            style={{ overflowX: "scroll" }}
           >
+            <BSBox ImageUrl="/items/I (5).jpg" name="Premium Car Deck." price={10} id="1"/>
+            <BSBox ImageUrl="/items/I (2).jpg" name="Holy communion - decorated candle." price={10} id="1"/>
+            <BSBox ImageUrl="/items/I (3).jpg" name="Artifical Bouquet." price={10} id="1"/>
+            <BSBox ImageUrl="/items/I (4).jpg" name="Red rose, dried Gixo. Bouqet" price={10} id="1"/>
+            <BSBox ImageUrl="/items/I (6).jpg" name="Artifical Bouquet" price={10} id="1"/>
           
-              <BSBox />
-              <BSBox />
-              <BSBox />
-              <BSBox />
-              <BSBox />
-             
-    
           </motion.section>
         </div>
       </section>
+      <section id="aboutUs" className="mt-10 flex flex-col md:flex-row ">
+        <div className="md:flex hidden justify-center w-[50%] h-full items-center p-10 ">
+          <Thumbnails
+            url1="/items/I (5).jpg"
+            url2="/items/I (4).jpg"
+            url3="/items/I (3).jpg"
+          />
+        </div>
+        <div className="md:hidden flex justify-center items-center p-2 ">
+          <ThumbMob
+            url1="/items/I (5).jpg"
+            url2="/items/I (4).jpg"
+            url3="/items/I (3).jpg"
+          />
+        </div>
+        <div className="flex flex-col items-center md:w-[50%]">
+          <div className="md:my-[60px] text-black md:text-5xl text-3xl pathway-extreme ">
+            About Us
+          </div>
+          <div className=" text-lg md:text-2xl font-light items-center w-[90%] md:w-[80%] mx-auto">
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industrys standard dummy text
+            <br />
+            <br />
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book.
+            <br />
+            <br />
+            remaining essentially unchanged. It was popularised in the 1960s
+            with the release of Letraset sheets containing Lorem Ipsum passages,
+            and more recently with desktop publishing software like Aldus
+            PageMaker including versions of Lorem Ipsum.
+          </div>
+        </div>
+      </section>
+      <section id="collectionSection">
+        <div className="mt-[80px] text-center text-black text-2xl md:text-5xl pathway-extreme">
+          Collections
+        </div>
+        <div className="flex md:w-[75%] mx-auto p-5 justify-center gap-10  md:overflow-hidden overflow-scroll flex-wrap">
+          <HomeCollections url="/items/I (5).jpg" name="Item name1" />
+          <HomeCollections url="/items/I (4).jpg" name="Item name1" />
+          <HomeCollections url="/items/I (3).jpg" name="Item name1" />
+          <HomeCollections url="/items/I (2).jpg" name="Item name1" />
+          <HomeCollections url="/items/I (1).jpg" name="Item name1" />
+          <HomeCollections url="/items/I (6).jpg" name="Item name1" />
+          
+        </div>
+      </section>
+      <Footer/>
     </main>
   );
 }

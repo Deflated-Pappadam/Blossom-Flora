@@ -54,11 +54,7 @@ export default function RootLayout({
       
       <body className={inter.className}>
         
-      <div className="w-full font-light text-lg border-b-2 justify-start p-2 hidden md:flex">
-        <div className="w-[80%] mx-auto">
-          oi guys we dont have all kerala delivery and order 2 days before.
-        </div>
-      </div>
+      
 
           {children}
         </body>
