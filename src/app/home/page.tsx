@@ -7,7 +7,6 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useRef, useState } from "react";
 import "@splidejs/splide/dist/css/splide.min.css";
-import Itembox from "@/components/Itembox";
 import ThumbMob from "@/components/ThumbMob";
 import Thumbnails from "@/components/Thumbnails";
 import HomeCollections from "@/components/HomeCollections";
@@ -102,7 +101,7 @@ function Page() {
                 }}
               >
                 <SplideSlide>
-                  <div className="max-h-[70vh] ">
+                  <div className="md:max-h-[70vh] max-h-[50vh]">
                     <Image
                       src="/items/I (3).jpg"
                       alt="Logo"
@@ -113,7 +112,7 @@ function Page() {
                   </div>
                 </SplideSlide>
                 <SplideSlide>
-                  <div className="max-h-[70vh] ">
+                  <div className="md:max-h-[70vh] max-h-[50vh]">
                     <Image
                       src="/items/I (4).jpg"
                       alt="Logo"
@@ -124,7 +123,7 @@ function Page() {
                   </div>
                 </SplideSlide>
                 <SplideSlide>
-                  <div className="max-h-[70vh] ">
+                  <div className="md:max-h-[70vh] max-h-[50vh] ">
                     <Image
                       src="/items/I (6).jpg"
                       alt="Logo"

@@ -4,7 +4,6 @@ import React from "react";
 type CollectionProps = {
   url: string;
   name: string;
-  
 };
 
 function Collection(props: CollectionProps) {
@@ -12,8 +11,8 @@ function Collection(props: CollectionProps) {
     <div>
       <div className="group flex relative group md:w-[300px] md:h-[300px] md:min-w-[300px] md:min-h-[300px] w-[150px] h-[150px] min-w-[150px] min-h-[150px]  overflow-hidden ">
         <Image
-        width={1080}
-        height={1080}
+          width={1080}
+          height={1080}
           src={props.url}
           alt=""
           className="group-hover:scale-150 object-cover h-full w-full transition-all duration-500 group-hover:blur-[4px]"
@@ -28,4 +27,4 @@ function Collection(props: CollectionProps) {
   );
 }
 
-export default  Collection;
+export default Collection;
