@@ -8,7 +8,6 @@ import { doc, setDoc} from "firebase/firestore";
 import { useRouter } from "next/navigation";
 import toast, { Toaster } from "react-hot-toast";
 
-
 export default function SignUp() {
 
   const [email, setEmail] = useState('');

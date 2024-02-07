@@ -99,7 +99,7 @@ export default function Navbar() {
               <Link href="/user">
                 <Image src="/profile.png" alt="user dashboard" width={30} height={30} />
               </Link>
-              <Link href="/cart">
+              <Link href="/Cart">
                 <Image src="/cart.png" alt="cart" width={30} height={30} />
               </Link>
               <button onClick={handleSignOut}>
@@ -109,10 +109,10 @@ export default function Navbar() {
           ) : (
             //if user doesnt exist...change logo of icons according to the route
             <div className="flex md:gap-6 gap-2 items-center h-full my-auto md:pt-3">
-              <Link href="/login">
+              <Link href="/Login">
                 <Image src="/login.png" alt="login" width={30} height={30} />
               </Link>
-              <Link href="/signup">
+              <Link href="/Signup">
                 <Image src="/adduser.png" alt="signup" width={30} height={30} />
               </Link>
             </div>
