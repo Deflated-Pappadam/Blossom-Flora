@@ -1,6 +1,6 @@
 "use client";
 
-import Navbar from "@/components/Navbar";
+import Navbar from "@/app/components/Navbar";
 import { useEffect, useState } from "react";
 import { auth, getUser } from "../../../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";

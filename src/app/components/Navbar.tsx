@@ -4,7 +4,7 @@ import {useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { User, signOut } from "firebase/auth";
-import { auth, getUser } from "../../firebase";
+import { auth, getUser } from "../../../firebase";
 
 export default function Navbar() {
   const [user, setUser] = useState<User | null>(null);

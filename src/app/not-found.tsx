@@ -1,6 +1,6 @@
 "use client";
 
-import Navbar from "@/components/Navbar";
+import Navbar from "@/app/components/Navbar";
 import Link from "next/link";
 import { useEffect } from "react";
 import Marquee from "react-fast-marquee";

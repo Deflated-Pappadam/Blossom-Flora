@@ -1,8 +1,8 @@
 "use client"
 
 import React, { useEffect, useState } from "react";
-import CollectionItem from "@/components/CollectionItem";
-import Navbar from "@/components/Navbar";
+import CollectionItem from "@/app/components/CollectionItem";
+import Navbar from "@/app/components/Navbar";
 import { DocumentData, collection, onSnapshot } from "firebase/firestore";
 import { db } from "../../../firebase";
 
