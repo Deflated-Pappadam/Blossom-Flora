@@ -134,10 +134,10 @@ export default function Navbar() {
             <span className="absolute top-8 left-0 group-hover:w-full w-0 h-[2px] transition-all bg-black duration-300"></span>
           </Link>
           <Link
-            href="/"
+            href="/#aboutUs"
             className="group relative inline-block hover:cursor-pointer"
           >
-            <span className="text-black py-2">ABOUT US</span>
+            <span className="text-black py-2">ABOUT</span>
             <span className="absolute top-8 left-0 group-hover:w-full w-0 h-[2px] transition-all bg-black duration-300"></span>
           </Link>
           <Link

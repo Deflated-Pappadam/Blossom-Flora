@@ -3,7 +3,7 @@ import React from 'react'
 function Footer() {
   return (
     <footer
-    className="w-full mt-10 md:min-h-[200px]   bg-slate-100 p-10 justify-end" id="contactUs"
+    className="w-full mt-10 md:min-h-[200px]   bg-[#eeeeee] p-10 justify-end" id="contactUs"
   >
     <div className="flex md:flex-row flex-col justify-between">
       <div>
@@ -14,7 +14,7 @@ function Footer() {
           some great sayn by ritvik
         </div>
         <div className="m-4 text-xl md:text-2xl text-gray-500">
-          location, jksg kjf,dgdf
+        Attingal, thiruvananthapuram
         </div>
       </div>
 
