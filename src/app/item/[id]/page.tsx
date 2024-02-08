@@ -16,6 +16,7 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { db, getUser } from "../../../../firebase";
 import { User } from "firebase/auth";
+import Navbar from "@/app/components/Navbar";
 
 export default function Item({ params }: { params: { id: string } }) {
   const [quantity, setQuantity] = useState(1);
@@ -89,7 +90,8 @@ export default function Item({ params }: { params: { id: string } }) {
   };
 
   return (
-    <div className="w-full md:min-h-screen flex flex-col">
+    <div className="w-full md:min-h-screen flex flex-col justify-between items-center ">
+      <Navbar/>
       <div className="w-full h-full flex md:flex-row flex-col  md:px-10 justify-center item-center">
         <div className="md:w-[50%] md:h-full h-[50%] flex justify-center items-center mx-auto my-auto  overflow-hidden">
           <div>
@@ -98,7 +100,7 @@ export default function Item({ params }: { params: { id: string } }) {
               alt="Item01"
               width={600}
               height={800}
-              className="flex md:w-[500px] w-[300px]  justify-center h-[600px] object-fit "
+              className="flex md:w-[500px] w-[300px]  justify-center h-[600px] object-cover "
             />
           </div>
         </div>
@@ -133,7 +135,7 @@ export default function Item({ params }: { params: { id: string } }) {
               </div>
             </div>
             <div className="text-3xl text-gray-800 md:mx-0 my-5 mx-5">
-              ${data?.Price}
+              ${data?.Price*quantity}
             </div>
             <div className="group md:mx-0 mx-auto md:w-[60%] md:h-[60px] w-[90%] h-[50px] bg-black rounded-md hover:border-[1px] border-black hover:bg-white transition-all">
               <button onClick={handleBooking} className="flex w-full h-full justify-center items-center text-white group-hover:text-black ">
@@ -153,6 +155,7 @@ export default function Item({ params }: { params: { id: string } }) {
           </div>
         </div>
       </div>
+      <div></div>
     </div>
   );
 }

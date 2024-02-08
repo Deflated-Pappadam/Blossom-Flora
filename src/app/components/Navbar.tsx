@@ -35,7 +35,13 @@ export default function Navbar() {
   })
 
   return (
-    <nav className="flex w-full h-full">
+    <nav className="flex flex-col w-full h-full ">
+      <div className="w-full font-light text-lg  justify-start  hidden md:flex mb-1">
+        <div className="w-[90%] mx-auto border-b-2 bg-[#2d2d2d] rounded-b-lg text-white text-md poppins-light p-1 text-center">
+          Home delivery available only for nearby locations , please order within
+          a two day notice
+        </div>
+      </div>
       <div
         className="overflow-hidden md:hidden transition-all delay-600 bg-slate-100 min-h-screen min-w-full"
         style={{
@@ -70,7 +76,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      <div className="flex w-full md:w-[95%] mx-auto flex-col justify-between  rounded-[10px] py-[20px] md:p-0">
+      <div className="flex w-full md:w-[95%] mx-auto flex-col justify-between  rounded-[10px] py-[20px] md:p-0 ">
         <div className="flex w-[80%] mx-auto  justify-between  rounded-[10px]">
           {/* Logo */}
           <div className="md:flex pt-3 hidden justify-start">
@@ -112,7 +118,7 @@ export default function Navbar() {
               <Link href="/Login">
                 <Image src="/login.png" alt="login" width={30} height={30} />
               </Link>
-              <Link href="/Signup">
+              <Link href="/SignUp">
                 <Image src="/adduser.png" alt="signup" width={30} height={30} />
               </Link>
             </div>
@@ -135,7 +141,7 @@ export default function Navbar() {
             <span className="absolute top-8 left-0 group-hover:w-full w-0 h-[2px] transition-all bg-black duration-300"></span>
           </Link>
           <Link
-            href="/collections"
+            href="/Collections"
             className="group relative inline-block hover:cursor-pointer"
           >
             <span className="text-black py-2">SHOP</span>

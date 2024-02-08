@@ -61,12 +61,7 @@ function Page() {
           </Link>
         </div>
       </nav> */}
-      <div className="w-full font-light text-lg  justify-start  hidden md:flex mb-1">
-        <div className="w-[90%] mx-auto border-b-2 bg-[#2d2d2d] rounded-b-lg text-white text-md poppins-light p-1 text-center">
-          Home delivery available only for nearby locations , please order within
-          a two day notice
-        </div>
-      </div>
+      
 
       <Navbar />
       <section id="hero" className="realtive flex flex-col w-full ">
