@@ -110,6 +110,7 @@ export default function Cart() {
                   ItemName: null;
                   Quantity: null;
                   price: null | null | undefined;
+                  ImageUrl:string | string| undefined
                 }) => (
                   <li
                     key={item.id}
@@ -117,7 +118,7 @@ export default function Cart() {
                   >
                     <div className="flex  md:max-w-[45%] md:mx-[200px]">
                       <img
-                        src="https://images.unsplash.com/photo-1488372759477-a7f4aa078cb6?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        src={item.ImageUrl}
                         className="w-[100px] h-[100px] object-cover"
                       />
                       <div>
