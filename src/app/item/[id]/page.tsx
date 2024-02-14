@@ -18,10 +18,12 @@ import { db, getUser } from "../../../../firebase";
 import { User } from "firebase/auth";
 import Navbar from "@/app/components/Navbar";
 import { useRouter } from "next/navigation";
+import LoadingScreen from "@/app/loading";
 
 export default function Item({ params }: { params: { id: string } }) {
   const [quantity, setQuantity] = useState(1);
   const [user, setUser] = useState<User | null>(null);
+  const [loading, setLoading] = useState(false);
   const [data, setData] = useState<DocumentData>();
   const router = useRouter();
 
@@ -50,7 +52,6 @@ export default function Item({ params }: { params: { id: string } }) {
   };
 
   const handleBooking = () => {
-
     addDoc(collection(db, "/history"), {
       Name: data?.Name,
       quantity: quantity,
@@ -63,6 +64,7 @@ export default function Item({ params }: { params: { id: string } }) {
   };
 
   const handleAddToCart = async () => {
+    setLoading(true);
     try {
       const q = query(
         collection(db, "cart"),
@@ -92,7 +94,10 @@ export default function Item({ params }: { params: { id: string } }) {
     } catch (e) {
       console.log(e);
     }
+    setLoading(false);
   };
+
+  if(!data || loading) return <LoadingScreen/>;
 
   return (
     <div className="w-full md:min-h-screen flex flex-col justify-between items-center ">

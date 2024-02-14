@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import Navbar from "@/app/components/Navbar";
+import Navbar from "../components/Navbar";
 import { auth, db, getUser } from "../../../firebase";
 import { useRouter, redirect } from "next/navigation";
 import { User } from "firebase/auth";
@@ -14,10 +14,11 @@ import {
   query,
   where,
 } from "firebase/firestore";
+import LoadingScreen from "../loading";
 
 export default function Cart() {
   const [user, setUser] = useState<User | null>(null);
-  const [cartItems, setCartItems] = useState<DocumentData>([]);
+  const [cartItems, setCartItems] = useState<DocumentData | null>(null);
 
   const { push } = useRouter();
   useEffect(() => {
@@ -47,8 +48,6 @@ export default function Cart() {
   };
 
   useEffect(() => {
-    
-
     const unsubscribe = () => {
       try {
         if (!user) return;
@@ -70,6 +69,10 @@ export default function Cart() {
     };
     return unsubscribe();
   }, [user]);
+
+  if(!cartItems) {
+    return <LoadingScreen/>
+  }
 
   return (
     <main className="flex w-full h-full min-h-screen flex-col bg-slate-50 poppins-thin">
@@ -123,9 +126,7 @@ export default function Cart() {
                       />
                       <div>
                         <div className="poppins-light p-2">{item.ItemName}</div>
-                        <button className="w-fit h-fit p-2 bg-black m-2 text-white rounded-lg" onClick={() => removecart(item.ItemId)}
->
-                          
+                        <button className="w-fit h-fit p-2 bg-black m-2 text-white rounded-lg" onClick={() => removecart(item.ItemId)}>
                           REMOVE
                         </button>
                       </div>

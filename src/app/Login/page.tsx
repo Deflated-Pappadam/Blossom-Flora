@@ -1,11 +1,11 @@
 "use client";
-
-import Navbar from "@/app/components/Navbar";
+;
 import { useEffect, useState } from "react";
 import { auth, getUser } from "../../../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useRouter } from "next/navigation";
 import toast, { Toaster } from "react-hot-toast";
+import Navbar from "../components/Navbar";
 
 export default function Login() {
   const { push } = useRouter();

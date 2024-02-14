@@ -4,6 +4,8 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import localFont from "next/font/local"
 import { Toaster } from 'react-hot-toast'
+import { Suspense } from 'react'
+import LoadingScreen from './loading'
 
 
 const logo = localFont({
@@ -53,9 +55,6 @@ export default function RootLayout({
     <html lang="en" className={`${logo.variable} ${text.variable} font-sans`}>
       
       <body className={inter.className}>
-        
-      
-
           {children}
         </body>
     </html>

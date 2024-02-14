@@ -5,6 +5,7 @@ import CollectionItem from "@/app/components/CollectionItem";
 import Navbar from "@/app/components/Navbar";
 import { DocumentData, collection, onSnapshot } from "firebase/firestore";
 import { db } from "../../../firebase";
+import LoadingScreen from "../loading";
 
 type data = {
   id: string
@@ -12,7 +13,7 @@ type data = {
 }
 
 function Collections() {
-  const [allData, setAllData] = useState<data[]>([]);
+  const [allData, setAllData] = useState<data[] | null>(null);
   const checkBox = "mr-5  sm:w-[20px] sm:h-[20px]";
 
   useEffect(() => {
@@ -26,6 +27,8 @@ function Collections() {
 
     return () => unsub()
   }, [])
+
+  if (!allData) return <LoadingScreen/>
 
   return (
     <div className="w-full">
