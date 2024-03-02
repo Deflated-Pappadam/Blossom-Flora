@@ -6,6 +6,18 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    fontSize: {
+      'xs': '0.64rem',
+      'sm': '0.8rem',
+      'base': '1rem',
+      'md': '1.15rem',
+      'lg': '1.25rem',
+      'xl': '1.563rem',
+      '2xl': '1.953rem',
+      '3xl': '2.441rem',
+      '4xl': '3.052rem',
+      '5xl': '3.815rem',
+    },
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -13,9 +25,11 @@ module.exports = {
         'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       fontFamily: {
-        caslon: ['Caslon Bold', 'serif'],
-        logo: ['var(--font-logo)'],
-        text: ['var(--font-text)'],
+        logo: ["Great Browich"],
+        poppins: ["Poppins", "sans-serif"],
+        pathway: ["Pathway", "sans-serif"],
+        caslon: ["Caslon", "sans-serif"],
+        main: ["Roboto Condensed", "sans-serif"],
       },
     },
   },

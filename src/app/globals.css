@@ -1,26 +1,46 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Pathway+Extreme:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Protest+Strike&family=Quicksand:wght@300..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pathway+Extreme:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Protest+Strike&family=Quicksand:wght@300..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
+@font-face {
+  font-family: "Great Browich";
+  src: url("/fonts/Great Bromwich W01 Bold.ttf");
+}
+
+@font-face {
+  font-family: "Caslon";
+  src: url("/fonts/Caslon Bold Regular.otf");
+}
+
+@layer base {
+  h1 {
+    @apply text-4xl;
+  }
+  h2 {
+    @apply text-3xl;
+  }
+  h3 {
+    @apply text-2xl;
+  }
+  h4 {
+    @apply text-xl;
+  }
+  p {
+    @apply text-base;
+  }
+}
+
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
 
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-} */
-
 body {
   color: rgb(var(--foreground-rgb));
-  background: white
+  background: white;
 }
 
 .scroll-container {
@@ -37,7 +57,7 @@ body {
 ::-webkit-scrollbar {
   height: 5px;
   width: 1px;
-  background: rgba(113, 113, 113, 0.9) ;
+  background: rgba(113, 113, 113, 0.9);
   -webkit-border-radius: 1ex;
 }
 
@@ -51,25 +71,21 @@ body {
   background: rgba(0, 0, 0, 0.2);
 }
 
-
-
-
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
-.no-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-}
-.pathway-extreme {
+/* .no-scrollbar { */
+  /* -ms-overflow-style: none; IE and Edge */
+  /* scrollbar-width: none; Firefox */
+/* }  */
+/* .pathway-extreme {
   font-family: "Pathway Extreme", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
+  font-variation-settings: "wdth" 100;
 }
 .main {
   font-family: "Roboto Condensed", sans-serif;
@@ -77,10 +93,10 @@ body {
   font-weight: 400;
   font-style: normal;
 }
-.main-thick{
+.main-thick {
   font-family: "Roboto Condensed", sans-serif;
   font-optical-sizing: auto;
-  font-weight:500;
+  font-weight: 500;
   font-style: normal;
 }
 
@@ -190,5 +206,4 @@ body {
   font-family: "Poppins", sans-serif;
   font-weight: 900;
   font-style: italic;
-}
-
+} */ 

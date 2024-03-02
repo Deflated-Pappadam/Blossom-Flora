@@ -10,27 +10,25 @@ type ItemProps = {
 
 function BSBox({ ImageUrl, name, price, id }: ItemProps) {
   return (
-    <div className="group md:w-[300px] w-[300px] md:h-[500px] bg-white rounded-lg shrink-0 p-5 relative">
-      <div className="pathway-extreme text-2xl p-1 py-5 min-h-[100px]">
-        {name}
-      </div>
-
+    <div className="group relative flex min-h-[500px] w-[300px] shrink-0 flex-col justify-between rounded-lg bg-white p-5">
       <Image
         src={ImageUrl}
         alt=""
         height={1080}
         width={1080}
-        className="w-[300px] md:min-h-[300px] h-[200px]  object-contain items-center  "
+        className="h-[200px] w-[300px] items-center  object-contain md:min-h-[300px]  "
       />
-
-      <div className="absolute w-full flex justify-center top-[360px] left-0  right-0 ">
-        <button className="flex justify-center bg-[#2d2d2d] text-white p-2 opacity-0 group-hover:opacity-100  transition-all cursor-pointer ">
-          ADD TO CART
-        </button>
-      </div>
-      <div className="w-full flex justify-between p-2 py-5">
-        <div className=" poppins-light text-xl">Price </div>
-        <div>$ {price}/piece</div>
+      <h4 className="font-caslon p-1 py-5 text-center">{name}</h4>
+      <div>
+        <div className="flex w-full justify-between p-2 py-5">
+          <p>Price </p>
+          <p>$ {price}/piece</p>
+        </div>
+        <div className="flex justify-center">
+          <button className="flex w-full cursor-pointer justify-center rounded-md bg-[#2d2d2d] p-2 text-white ">
+            ADD TO CART
+          </button>
+        </div>
       </div>
     </div>
   );

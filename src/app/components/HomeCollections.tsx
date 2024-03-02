@@ -17,10 +17,10 @@ function Collection(props: CollectionProps) {
           alt=""
           className="group-hover:scale-150 object-cover h-full w-full transition-all duration-500 group-hover:blur-[4px]"
         />
-        <div className=" absolute w-full top-[45%] text-center md:px-[5%] px-[15%] flex justify-centertransition-all duration-500">
-          <div className="opacity-100  md:text-4xl text-xl text-white font-caslon transition-all duration-500">
+        <div className="absolute w-full h-full top-[45%] text-center md:px-[5%] px-[15%] flex justify-center transition-all duration-500">
+          <p className="opacity-100 text-lg text-white font-caslon transition-all duration-500">
             {props.name}
-          </div>
+          </p>
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import {useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { User, signOut } from "firebase/auth";
@@ -24,40 +24,40 @@ export default function Navbar() {
     }, 700);
   };
 
-  const  handleSignOut = () => {
+  const handleSignOut = () => {
     signOut(auth);
-  }
+  };
 
   useEffect(() => {
     return getUser((user) => {
       setUser(user);
-    })
-  })
+    });
+  });
 
   return (
-    <nav className="flex flex-col w-full h-full ">
-      <div className="w-full font-light text-lg  justify-start  hidden md:flex mb-1">
-        <div className="w-[90%] mx-auto border-b-2 bg-[#2d2d2d] rounded-b-lg text-white text-md poppins-light p-1 text-center">
-          Home delivery available only for nearby locations , please order within
-          a two day notice
+    <nav className="flex h-full w-full flex-col ">
+      <div className="font-poppin mb-1 hidden  w-full  justify-start text-lg md:flex">
+        <div className="poppins-light mx-auto w-[90%] rounded-b-lg border-b-2 bg-[#2d2d2d] p-1 text-center text-md text-white">
+          Home delivery available only for nearby locations , please order
+          within a two day notice
         </div>
       </div>
       <div
-        className="overflow-hidden md:hidden transition-all delay-600 bg-slate-100 min-h-screen min-w-full"
+        className="delay-600 min-h-screen min-w-full overflow-hidden bg-slate-100 transition-all md:hidden"
         style={{
           width: dropDown === "none" ? "0px" : "150px",
           display: dropDown === "none" ? "none" : "flex",
         }}
       >
-        <div className="flex w-full  flex-col  mt-5  " id="navbar-default">
+        <div className="mt-5 flex  w-full  flex-col  " id="navbar-default">
           <div
-            className="text-4xl justify-end items-end flex px-5"
+            className="flex items-end justify-end px-5 text-4xl"
             onClick={handleDropDown}
           >
             X
           </div>
-          <div className="flex flex-col justify-center  items-start w-full h-full text-5xl  ">
-            <a href="/" className="p-7 hover:text-slate-700">
+          <div className="flex h-full w-full flex-col items-start justify-center">
+            <a href="/" className="p-7">
               HOME
             </a>
             <a href="/" className="p-7">
@@ -76,90 +76,116 @@ export default function Navbar() {
         </div>
       </div>
 
-      <div className="flex w-full md:w-[95%] mx-auto flex-col justify-between  rounded-[10px] py-[20px] md:p-0 ">
-        <div className="flex w-[80%] mx-auto  justify-between  rounded-[10px]">
-          {/* Logo */}
-          <div className="md:flex pt-3 hidden justify-start">
-            <Image src="/logo-black.png" alt="Logo" width={120} height={120} />
-          </div>
-          <button onClick={handleDropDown}>
-            <div className="md:hidden flex pt-3 justify-start">
+      <div className="mx-auto flex w-full flex-col justify-between px-10 py-[20px] md:w-[95%]  md:p-0 md:px-20 ">
+        <div className="flex justify-between">
+          <div className="w-full">
+            {/* Logo */}
+            <div className="hidden justify-start pt-3 md:flex">
               <Image
-                src="/menu.svg"
+                src="/logo.png"
                 alt="Logo"
-                width={35}
-                height={35}
-                className="mb-2"
+                width={120}
+                height={120}
               />
             </div>
-          </button>
+            <button onClick={handleDropDown}>
+              <div className="flex justify-start pt-3 md:hidden">
+                <Image
+                  src="/menu.svg"
+                  alt="Logo"
+                  width={35}
+                  height={35}
+                  className="mb-2"
+                />
+              </div>
+            </button>
+          </div>
 
           {/* Title */}
-          <div className="flex flex-col md:w-full font-logo text-xl md:text-5xl text-center items-center justify-center ">
-            <div className="md:flex hidden text-3xl ">The </div>Blossom Flora
+          <div className="flex w-full flex-col items-center justify-center font-logo text-xl font-bold">
+            <h1 className="text-center font-logo break-words text-md md:text-2xl lg:text-4xl">
+              Blossom Flora
+            </h1>
           </div>
-          {/* Icons */}
-          {user ? (
-            // if user exist...add a logo to signout button
-            <div className="flex md:gap-6 gap-2 items-center h-full my-auto md:pt-3">
-              <Link href="/user">
-                <Image src="/profile.png" alt="user dashboard" width={30} height={30} />
-              </Link>
-              <Link href="/cart">
-                <Image src="/cart.png" alt="cart" width={30} height={30} />
-              </Link>
-              <button onClick={handleSignOut}>
-                <Image src="/logout.png" alt="signout" width={25} height={25}/>
-              </button>
-            </div>
-          ) : (
-            //if user doesnt exist...change logo of icons according to the route
-            <div className="flex md:gap-6 gap-2 items-center h-full my-auto md:pt-3">
-              <Link href="/login">
-                <Image src="/login.png" alt="login" width={30} height={30} />
-              </Link>
-              <Link href="/signup">
-                <Image src="/adduser.png" alt="signup" width={30} height={30} />
-              </Link>
-            </div>
-          )}
+          <div className="w-full flex justify-end">
+            {/* Icons */}
+            {user ? (
+              // if user exist...add a logo to signout button
+              <div className="my-auto flex h-full items-center gap-2 md:gap-6 md:pt-3">
+                <Link href="/user">
+                  <Image
+                    src="/profile.png"
+                    alt="user dashboard"
+                    width={30}
+                    height={30}
+                  />
+                </Link>
+                <Link href="/cart">
+                  <Image src="/cart.png" alt="cart" width={30} height={30} />
+                </Link>
+                <button onClick={handleSignOut}>
+                  <Image
+                    src="/logout.png"
+                    alt="signout"
+                    width={25}
+                    height={25}
+                  />
+                </button>
+              </div>
+            ) : (
+              //if user doesnt exist...change logo of icons according to the route
+              <div className="my-auto flex h-full items-center gap-2 md:gap-6 md:pt-3">
+                <Link href="/login">
+                  <Image src="/login.png" alt="login" width={30} height={30} />
+                </Link>
+                <Link href="/signup">
+                  <Image
+                    src="/adduser.png"
+                    alt="signup"
+                    width={30}
+                    height={30}
+                  />
+                </Link>
+              </div>
+            )}
+          </div>
         </div>
 
-        <div className="hidden md:flex w-full text-xl font-extralight   items-center text-center justify-center gap-8  p-5">
+        <div className="hidden w-full items-center justify-center gap-8   p-5 text-center text-xl font-extralight  md:flex">
           <Link
             href="/"
             className="group relative inline-block hover:cursor-pointer"
           >
-            <span className="text-black py-2">HOME</span>
-            <span className="absolute top-8 left-0 group-hover:w-full w-0 h-[2px] transition-all bg-black duration-300"></span>
+            <span className="py-2 text-black">HOME</span>
+            <span className="absolute left-0 top-8 h-[2px] w-0 bg-black transition-all duration-300 group-hover:w-full"></span>
           </Link>
           <Link
             href="/#aboutUs"
             className="group relative inline-block hover:cursor-pointer"
           >
-            <span className="text-black py-2">ABOUT</span>
-            <span className="absolute top-8 left-0 group-hover:w-full w-0 h-[2px] transition-all bg-black duration-300"></span>
+            <span className="py-2 text-black">ABOUT</span>
+            <span className="absolute left-0 top-8 h-[2px] w-0 bg-black transition-all duration-300 group-hover:w-full"></span>
           </Link>
           <Link
             href="/collections"
             className="group relative inline-block hover:cursor-pointer"
           >
-            <span className="text-black py-2">SHOP</span>
-            <span className="absolute top-8 left-0 group-hover:w-full w-0 h-[2px] transition-all bg-black duration-300"></span>
+            <span className="py-2 text-black">SHOP</span>
+            <span className="absolute left-0 top-8 h-[2px] w-0 bg-black transition-all duration-300 group-hover:w-full"></span>
           </Link>
           <Link
             href="/#collectionSection"
             className="group relative inline-block hover:cursor-pointer"
           >
-            <span className="text-black py-2">COLLECTION</span>
-            <span className="absolute top-8 left-0 group-hover:w-full w-0 h-[2px] transition-all bg-black duration-300"></span>
+            <span className="py-2 text-black">COLLECTION</span>
+            <span className="absolute left-0 top-8 h-[2px] w-0 bg-black transition-all duration-300 group-hover:w-full"></span>
           </Link>
           <Link
             href="/"
             className="group relative inline-block hover:cursor-pointer"
           >
-            <span className="text-black py-2">CONTACT US</span>
-            <span className="absolute top-8 left-0 group-hover:w-full w-0 h-[2px] transition-all bg-black "></span>
+            <span className="py-2 text-black">CONTACT US</span>
+            <span className="absolute left-0 top-8 h-[2px] w-0 bg-black transition-all group-hover:w-full "></span>
           </Link>
         </div>
       </div>

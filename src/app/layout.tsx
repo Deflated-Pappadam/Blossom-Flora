@@ -8,35 +8,35 @@ import { Suspense } from 'react'
 import LoadingScreen from './loading'
 
 
-const logo = localFont({
-  src: [
-    {
-      path: '../../public/fonts/Great Bromwich W01 Bold.ttf',
-      weight: '400'
-    },
-    {
-      path: '../../public/fonts/Great Bromwich W01 Bold.ttf',
-      weight: '700'
-    },
+// const logo = localFont({
+//   src: [
+//     {
+//       path: '../../public/fonts/Great Bromwich W01 Bold.ttf',
+//       weight: '400'
+//     },
+//     {
+//       path: '../../public/fonts/Great Bromwich W01 Bold.ttf',
+//       weight: '700'
+//     },
     
-  ],
-  variable: '--font-logo'
-})
+//   ],
+//   variable: '--font-logo'
+// })
 
-const text = localFont({
-  src:[
-    {
-      path: '../../public/fonts/MSung PRC Medium.ttf',
-      weight: '700'
-    },
-    {
-      path: '../../public/fonts/MSung PRC Medium.ttf',
-      weight: '700'
-    }
-  ],
-  variable: '--font-text'
+// const text = localFont({
+//   src:[
+//     {
+//       path: '../../public/fonts/MSung PRC Medium.ttf',
+//       weight: '700'
+//     },
+//     {
+//       path: '../../public/fonts/MSung PRC Medium.ttf',
+//       weight: '700'
+//     }
+//   ],
+//   variable: '--font-text'
 
-})
+// })
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -52,9 +52,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${logo.variable} ${text.variable} font-sans`}>
+    <html lang="en" className={`font-poppins`}>
       
-      <body className={inter.className}>
+      <body>
           {children}
         </body>
     </html>

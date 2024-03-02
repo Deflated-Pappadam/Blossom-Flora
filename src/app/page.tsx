@@ -15,7 +15,7 @@ function Page() {
   const [cartCount, setCartCount] = useState(0);
 
   return (
-    <main className="flex flex-col bg-[#fdfdfd] w-full h-full min-h-screen overflow-x-hidden justify-center">
+    <main className="flex h-full min-h-screen w-full flex-col justify-center overflow-x-hidden bg-[#fdfdfd]">
       {/* <nav className="w-full flex justify-between items-center min-h-[5%] mx-auto uppercase  md:px-[6%] p-3 border-b border-black b-1 text-lg poppins-light">
         <div className="md:flex hidden gap-6 ">
           <div>Home</div>
@@ -61,25 +61,24 @@ function Page() {
           </Link>
         </div>
       </nav> */}
-      
 
       <Navbar />
-      <section id="hero" className="realtive flex flex-col w-full ">
+      <section id="hero" className="realtive flex w-full flex-col ">
         {/* <div className="flex w-full items-center justify-center absolute main md:text-[1400%] text-[3rem] text-[#2d2d2d] uppercase p-10 md:pt-[10]">
         <span className="block md:inline">    Blossom<span className="main-thick">Flora</span></span>
         </div> */}
-        <div className="w-full flex md:flex-row flex-col md:max-h-[80vh] overflow-hidden">
-          <div className="flex justify-end  items-center md:w-[50%] bg-[#ebf1fa] md:order-0 order-1 p-10">
-            <div className="flex flex-col md:text-[3.5rem] text-2xl poppins-regular leading-none pt-10">
+        <div className="flex w-full flex-col overflow-hidden md:max-h-[80vh] md:flex-row">
+          <div className="md:order-0 order-1  flex items-center justify-end bg-[#ebf1fa] p-10 md:w-[50%]">
+            <div className="flex flex-col pt-10 text-xl leading-none md:text-2xl">
               SPECIALISTS IN THE CREATION, CURATION AND SUPPLY OF HIGH-QUALITY,
               STYLISH AND UNIQUE FLOWERS.
-              <button className="w-fit h-fit px-4 p-2 bg-[#2d2d2d] text-lg text-white my-5 ">
+              <button className="my-5 h-fit w-fit bg-[#2d2d2d] p-2 px-4 text-base text-white ">
                 COLLECTIONS
               </button>
             </div>
           </div>
-          <div className="md:max-w-[50%] overflow-hidden md:order-1 order-0 md:h-full w-full ">
-            <div className="w-full h-full">
+          <div className="order-0 w-full overflow-hidden md:order-1 md:h-full md:max-w-[50%] ">
+            <div className="h-full w-full">
               <Splide
                 options={{
                   type: "fade",
@@ -93,7 +92,7 @@ function Page() {
                 }}
               >
                 <SplideSlide>
-                  <div className="md:max-h-[70vh] max-h-[50vh]">
+                  <div className="max-h-[50vh] md:max-h-[70vh]">
                     <Image
                       src="/items/I (3).jpg"
                       alt="Logo"
@@ -104,7 +103,7 @@ function Page() {
                   </div>
                 </SplideSlide>
                 <SplideSlide>
-                  <div className="md:max-h-[70vh] max-h-[50vh]">
+                  <div className="max-h-[50vh] md:max-h-[70vh]">
                     <Image
                       src="/items/I (4).jpg"
                       alt="Logo"
@@ -115,7 +114,7 @@ function Page() {
                   </div>
                 </SplideSlide>
                 <SplideSlide>
-                  <div className="md:max-h-[70vh] max-h-[50vh] ">
+                  <div className="max-h-[50vh] md:max-h-[70vh] ">
                     <Image
                       src="/items/I (6).jpg"
                       alt="Logo"
@@ -133,15 +132,12 @@ function Page() {
 
       <section
         id="bestseller"
-        className="flex flex-col  items-center  bg-[#fafafa]"
+        className="flex flex-col items-center bg-[#fafafa]"
       >
-        <div className="md:w-[80%] w-full gap-8 justify-center p-2">
-         
-            <div className="md:text-[5rem] text-[3rem] pathway-extreme md:p-10 p-5">
-              Best Sellers
-            </div>
-            <FadeUp>
-            <motion.section className="flex w-full overflow-x-scroll h-fit justify-start items-center gap-6 md:py-6 py-4">
+        <div className="w-full max-w-7xl justify-center gap-8 p-2">
+          <h2 className="font-caslon p-5 font-medium md:p-10">Best Sellers</h2>
+          <FadeUp>
+            <motion.section className="flex h-full w-full items-center justify-start gap-6 overflow-x-scroll py-4 md:py-6">
               <BSBox
                 ImageUrl="/items/I (5).jpg"
                 name="Premium Car Deck."
@@ -176,17 +172,19 @@ function Page() {
           </FadeUp>
         </div>
       </section>
-      <section id="aboutUs" className="mt-10 flex flex-col md:flex-row ">
-       
-          <div className="md:flex hidden justify-center w-[50%] h-full items-center p-10 ">
-            <FadeUp> <Thumbnails
-              url1="/items/I (5).jpg"
-              url2="/items/I (4).jpg"
-              url3="/items/I (3).jpg"
-            /></FadeUp>
-           
+      <section id="aboutUs" className="mt-10">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-center md:flex-row">
+          <div className="hidden h-full w-[50%] items-center justify-center p-10 md:flex ">
+            <FadeUp>
+              {" "}
+              <Thumbnails
+                url1="/items/I (5).jpg"
+                url2="/items/I (4).jpg"
+                url3="/items/I (3).jpg"
+              />
+            </FadeUp>
           </div>
-          <div className="md:hidden flex justify-center items-center p-2 ">
+          <div className="flex items-center justify-center p-2 md:hidden ">
             <ThumbMob
               url1="/items/I (5).jpg"
               url2="/items/I (4).jpg"
@@ -194,43 +192,51 @@ function Page() {
             />
           </div>
 
-          
-        <div className="flex flex-col items-center md:w-[50%]">
-          <div className="md:my-[60px] text-black md:text-5xl text-3xl pathway-extreme ">
-            About Us
+          <div className="flex flex-col items-center">
+            <h2 className="font-caslon text-black">About Us</h2>
+            <FadeUp className="h-full w-full">
+              <div className="px-5 text-[0.9rem] font-light md:text-base">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industrys standard dummy text
+                <br />
+                <br />
+                ever since the 1500s, when an unknown printer took a galley of
+                type and scrambled it to make a type specimen book.
+                <br />
+                <br />
+                remaining essentially unchanged. It was popularised in the 1960s
+                with the release of Letraset sheets containing Lorem Ipsum
+                passages, and more recently with desktop publishing software
+                like Aldus PageMaker including versions of Lorem Ipsum.
+              </div>
+            </FadeUp>
           </div>
-          <FadeUp className="w-full h-full">
-          <div className=" text-lg md:text-2xl font-light items-center w-[90%] md:w-[80%] mx-auto">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industrys standard dummy text
-            <br />
-            <br />
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book.
-            <br />
-            <br />
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus
-            PageMaker including versions of Lorem Ipsum.
-          </div>
-          </FadeUp>
         </div>
-       
       </section>
       <section id="collectionSection">
-        <div className="mt-[80px] text-center text-black text-2xl md:text-5xl pathway-extreme">
-          Collections
+        <div className="mx-auto mt-10 flex max-w-7xl  flex-col items-center">
+        <h2 className="font-caslon  text-black">Collections</h2>
+        <FadeUp>
+          <div className="flex flex-wrap justify-center gap-10 ">
+            <HomeCollections url="/items/I (5).jpg" name="Premium Car Deck." />
+            <HomeCollections
+              url="/items/I (4).jpg"
+              name="Red rose, dried Gixo. Bouqet"
+            />
+            <HomeCollections url="/items/I (3).jpg" name="Artifical Bouquet" />
+            <HomeCollections
+              url="/items/I (2).jpg"
+              name="Holy communion - decorated candle."
+            />
+            <HomeCollections
+              url="/items/I (1).jpg"
+              name="  Cypress Car Dexk."
+            />
+            <HomeCollections url="/items/I (6).jpg" name="Artifical Bouquet" />
+          </div>
+        </FadeUp>
         </div>
-        <FadeUp> <div className="flex md:w-[75%] mx-auto p-5 justify-center gap-10  md:overflow-hidden overflow-scroll flex-wrap">
-          <HomeCollections url="/items/I (5).jpg" name="Premium Car Deck." />
-          <HomeCollections url="/items/I (4).jpg" name="Red rose, dried Gixo. Bouqet" />
-          <HomeCollections url="/items/I (3).jpg" name="Artifical Bouquet" />
-          <HomeCollections url="/items/I (2).jpg" name="Holy communion - decorated candle." />
-          <HomeCollections url="/items/I (1).jpg" name="  Cypress Car Dexk." />
-          <HomeCollections url="/items/I (6).jpg" name="Artifical Bouquet" />
-        </div></FadeUp>
-       
+
       </section>
       <Footer />
     </main>

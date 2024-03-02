@@ -23,9 +23,10 @@ export default function Cart() {
   const { push } = useRouter();
   useEffect(() => {
     return getUser((user) => {
-      if (!user) push("/");
-      else setUser(user);
+      // if (!user) push("/");
+      // else setUser(user);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
   const removecart = async (id: null) => {
     try {
@@ -33,7 +34,7 @@ export default function Cart() {
       const q = query(
         collection(db, "cart"),
         where("UserId", "==", user?.uid),
-        where("ItemId", "==", id)
+        where("ItemId", "==", id),
       );
 
       const querySnapshot = await getDocs(q);
@@ -53,14 +54,14 @@ export default function Cart() {
         if (!user) return;
         const q = query(
           collection(db, "cart"),
-          where("UserId", "==", user?.uid)
+          where("UserId", "==", user?.uid),
         );
         return onSnapshot(q, (snapshot) => {
           setCartItems(
             snapshot.docs.map((doc) => {
               console.log(doc.data());
               return doc.data();
-            })
+            }),
           );
         });
       } catch (e) {
@@ -70,36 +71,36 @@ export default function Cart() {
     return unsubscribe();
   }, [user]);
 
-  if(!cartItems) {
-    return <LoadingScreen/>
+  if (!cartItems) {
+    return <LoadingScreen />;
   }
 
   return (
-    <main className="flex w-full h-full min-h-screen flex-col bg-slate-50 poppins-thin">
-      <Navbar/>
+    <main className="flex h-full min-h-screen w-full flex-col bg-slate-50 font-poppins">
+      <Navbar />
       {/* Desktop Warning for Customers Hidden in Mobile View */}
       <section
         id="cart"
-        className="flex flex-col w-full h-full justify-center items-center"
+        className="flex h-full w-full flex-col items-center justify-center"
       >
-        <div className="flex h-full  w-full justify-center items-center text-[50px] font-text">
+        <div className="font-text flex  h-full w-full items-center justify-center text-[50px]">
           Cart
         </div>
         {cartItems.length === 0 ? (
           <div>
-            <div className="flex w-full h-full justify-center items-center text-center font-extralight text-2xl tracking-[1px]">
+            <div className="flex h-full w-full items-center justify-center text-center text-2xl font-extralight tracking-[1px]">
               Your cart is currently empty.
             </div>
             <a
               href="/"
-              className="flex w-full h-full justify-center items-center text-center font-extralight text-xl underline p-5 tracking-wider leading-6"
+              className="flex h-full w-full items-center justify-center p-5 text-center text-xl font-extralight leading-6 tracking-wider underline"
             >
               Continue shopping
             </a>
           </div>
         ) : (
-          <div className="flex flex-col w-full justify-between p-10 ">
-            <div className="w-[70%] mx-auto md:flex hidden justify-between text-2xl font-caslon pb-5">
+          <div className="flex w-full flex-col justify-between p-10 ">
+            <div className="font-caslon mx-auto hidden w-[70%] justify-between pb-5 text-2xl md:flex">
               <div className="min-w-[45%] "></div>
               <div>Quantity</div>
               <div>Total</div>
@@ -113,34 +114,37 @@ export default function Cart() {
                   ItemName: null;
                   Quantity: null;
                   price: null | null | undefined;
-                  ImageUrl:string | string| undefined
+                  ImageUrl: string | string | undefined;
                 }) => (
                   <li
                     key={item.id}
-                    className="flex md:flex-row flex-col w-full justify-between  items-center "
+                    className="flex w-full flex-col items-center justify-between  md:flex-row "
                   >
-                    <div className="flex  md:max-w-[45%] md:mx-[200px]">
+                    <div className="flex  md:mx-[200px] md:max-w-[45%]">
                       <img
                         src={item.ImageUrl}
-                        className="w-[100px] h-[100px] object-cover"
+                        className="h-[100px] w-[100px] object-cover"
                       />
                       <div>
                         <div className="poppins-light p-2">{item.ItemName}</div>
-                        <button className="w-fit h-fit p-2 bg-black m-2 text-white rounded-lg" onClick={() => removecart(item.ItemId)}>
+                        <button
+                          className="m-2 h-fit w-fit rounded-lg bg-black p-2 text-white"
+                          onClick={() => removecart(item.ItemId)}
+                        >
                           REMOVE
                         </button>
                       </div>
                     </div>
                     <div className="flex flex-col md:w-[45%] ">
                       <li key={item.id} className="">
-                        <div className="md:w-[70%] w-full mx-auto flex justify-between text-2xl font-caslon md:mt-[10%] p-2">
+                        <div className="font-caslon mx-auto flex w-full justify-between p-2 text-2xl md:mt-[10%] md:w-[70%]">
                           <div>{item.Quantity}</div>
                           <div>&#x20B9; {item.price}</div>
                         </div>
                       </li>
                     </div>
                   </li>
-                )
+                ),
               )}
             </ul>
           </div>

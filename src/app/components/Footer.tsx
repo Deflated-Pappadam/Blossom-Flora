@@ -1,67 +1,60 @@
-import React from 'react'
+import React from "react";
 
 function Footer() {
   return (
     <footer
-    className="w-full mt-10 md:min-h-[200px]   bg-[#eeeeee] p-10 justify-end" id="contactUs"
-  >
-    <div className="flex md:flex-row flex-col justify-between">
-      <div>
-        <div className="m-4 text-4xl md:text-6xl text-black font-semibold">
-          Blossom Flora
+      className="mt-10 w-full justify-end   bg-[#eeeeee] p-10 md:min-h-[200px]"
+      id="contactUs"
+    >
+      <div className="flex flex-col justify-between md:flex-row">
+        <div>
+          <h2 className="font-medium text-black">Blossom Flora</h2>
+          <p className="  text-gray-500">some great sayn by ritvik</p>
+          <p className="mt-4  text-gray-500">Attingal, thiruvananthapuram</p>
         </div>
-        <div className="m-4 text-2xl md:text-3xl text-gray-500">
-          some great sayn by ritvik
+
+        <div className="flex w-full justify-between md:w-[50%] ">
+          <div className="mt-10">
+            <h4 className="font-medium text-black">Socials </h4>
+            <a href="">
+              <p className="duration-600 cursor-pointer  text-gray-500 transition-all hover:text-black">
+                twitter: ddgsd
+              </p>
+            </a>
+
+            <a href="">
+              <p className="duration-600 cursor-pointer  text-gray-500 transition-all hover:text-black">
+                Insta : dsgsd
+              </p>
+            </a>
+            <a href="https://www.adithyakrishnan.com/">
+              <p className="duration-600 cursor-pointer  text-gray-500 transition-all hover:text-black">
+                Website : fdhfd
+              </p>
+            </a>
+          </div>
+          <div className="mt-10">
+            <h4 className=" font-medium">Contact Us</h4>
+            <a href="">
+              <p className="duration-600 cursor-pointer  text-gray-500 transition-all hover:text-black">
+                Phone:
+              </p>
+            </a>
+            <a href="">
+              <p className="duration-600 cursor-pointer text-gray-500 transition-all hover:text-black">
+                Adress 1
+              </p>
+            </a>
+            <a href="">
+              <p className="duration-600 cursor-pointer text-gray-500 transition-all hover:text-black">
+                adress 2
+              </p>
+            </a>
+          </div>
         </div>
-        <div className="m-4 text-xl md:text-2xl text-gray-500">
-        Attingal, thiruvananthapuram
-        </div>
       </div>
-
-
-      <div className='flex md:w-[50%] w-full justify-between p-5 '>
-      <div className="mt-10">
-        <div className="text-xl text-black font-semibold">Socials </div>
-        <a href="">
-          <div className="text-lg text-gray-500 hover:text-black cursor-pointer transition-all duration-600">
-            twitter: ddgsd
-          </div>
-        </a>
-
-        <a href="">
-          <div className="text-lg text-gray-500 hover:text-black cursor-pointer transition-all duration-600">
-            Insta : dsgsd
-          </div>
-        </a>
-        <a href="https://www.adithyakrishnan.com/">
-          <div className="text-lg text-gray-500 hover:text-black cursor-pointer transition-all duration-600">
-            Website : fdhfd
-          </div>
-        </a>
-      </div>
-      <div className="mt-10">
-        <div className="text-xl text-black font-semibold">Contact Us</div>
-        <a href="">
-          <div className="text-lg text-gray-500 hover:text-black cursor-pointer transition-all duration-600">
-            Phone:
-          </div>
-        </a>
-        <a href="">
-          <div className="text-lg text-gray-500 hover:text-black cursor-pointer transition-all duration-600">
-            Adress 1
-          </div>
-        </a>
-        <a href="">
-          <div className="text-lg text-gray-500 hover:text-black cursor-pointer transition-all duration-600">
-            adress 2
-          </div>
-        </a>
-      </div>
-      </div>
-
-    </div>
-  </footer>
-  )
+    </footer>
+  );
 }
 
-export default Footer
+export default Footer;
