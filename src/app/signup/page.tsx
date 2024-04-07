@@ -50,8 +50,6 @@ export default function SignUp() {
   return (
     <>
       <Toaster />
-
-      <Navbar />
       <section className="flex h-full  w-full flex-col items-center justify-center">
         <div className="my-[50px] flex w-full flex-col items-center justify-center ">
           <div className="font-text my-5 text-center text-3xl">
