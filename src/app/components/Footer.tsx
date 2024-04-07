@@ -6,7 +6,7 @@ function Footer() {
   return (
     <footer
       id="contactUs"
-      className="mt-[100px] flex w-full justify-between gap-5 p-5"
+      className="mt-[100px] flex w-full flex-col-reverse justify-between gap-5 p-5 md:flex-row"
     >
       <div className="map w-full">
         <iframe
@@ -23,7 +23,7 @@ function Footer() {
       </div>
       <div className="flex flex-col">
         <div>
-          <h4 className="mb-1 mt-5 font-semibold">Opening Hours</h4>
+          <p className="mb-1 mt-5 text-xl font-semibold">Opening Hours</p>
           <div className="flex w-[250px] justify-between">
             <p>Mon-Sat</p>
             <p>8:00 am - 7:00 pm</p>
@@ -35,30 +35,30 @@ function Footer() {
         </div>
 
         <div>
-          <h4 className="mb-1 mt-5 font-semibold">Contact Us</h4>
+          <p className="mb-1 mt-5 text-xl font-semibold">Contact Us</p>
           <a
-            className="flex items-center gap-1"
+            className="flex items-center gap-2 p-3"
             href="https://www.facebook.com/share/qt5hSVdMouLmbpDF/?mibextid=qi2Omg"
           >
-            <FaFacebookF />
+            <FaFacebookF size={"24px"} />
             <p>facebook</p>
           </a>
           <a
-            className="flex items-center gap-1"
+            className="flex items-center gap-2 p-3"
             href="https://www.instagram.com/blossomflora9?igsh=dHB6bHh1MXlxenVl"
           >
-            <FaInstagram />
+            <FaInstagram size={"24px"} />
             <p>instagram</p>
           </a>
           <a
-            className="flex items-center gap-1"
+            className="flex items-center gap-2 p-3"
             href="mailto:blossomflora9@gmail.com"
           >
-            <MdOutlineMail />
+            <MdOutlineMail size={"24px"} />
             <p>blossomflora9@gmail.com</p>
           </a>
-          <a className="flex items-center gap-1" href="tel:+917592092057">
-            <FaPhoneAlt />
+          <a className="flex items-center gap-2 p-3" href="tel:+917592092057">
+            <FaPhoneAlt size={"24px"} />
             <p>+91 7592092057</p>
           </a>
         </div>

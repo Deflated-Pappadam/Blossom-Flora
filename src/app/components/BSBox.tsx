@@ -10,15 +10,16 @@ type ItemProps = {
 
 function BSBox({ ImageUrl, name, price, id }: ItemProps) {
   return (
-    <div className="group relative flex h-[500px] w-[300px] shrink-0 flex-col justify-between rounded-lg bg-white p-5">
+    <div className="group relative flex h-[520px] w-[300px] shrink-0 flex-col justify-between rounded-lg bg-white p-5">
       <Image
+        loading="lazy"
         src={ImageUrl}
-        alt=""
-        height={1080}
-        width={1080}
-        className="h-[200px] w-[300px] items-center  object-contain md:min-h-[300px]  "
+        alt={name}
+        height={100}
+        width={250}
+        className="mx-auto h-auto w-auto object-contain"
       />
-      <h4 className="p-1 text-center font-caslon">{name}</h4>
+      <p className="p-1 text-center font-caslon text-xl">{name}</p>
       <div>
         {/* <div className="flex w-full justify-between p-2">
           <p>Price </p>

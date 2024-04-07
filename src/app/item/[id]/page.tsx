@@ -37,7 +37,7 @@ export default function Item({ params }: { params: { id: string } }) {
     });
 
     return () => unsub();
-  }, []);
+  }, [params.id]);
 
   const handleIncrease = () => {
     if (quantity < 999) {

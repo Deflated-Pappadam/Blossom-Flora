@@ -82,7 +82,7 @@ export default function Navbar() {
             <div className="hidden justify-start pt-3 md:flex">
               <Image src="/logo.png" alt="Logo" width={120} height={120} />
             </div>
-            <button onClick={handleDropDown}>
+            <button aria-label="hamburger menu" onClick={handleDropDown}>
               <div className="flex justify-start pt-3 md:hidden">
                 <GiHamburgerMenu />
               </div>
