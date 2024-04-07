@@ -17,56 +17,54 @@ export default function Error({
   }, [error]);
 
   return (
-    <div className="relative flex flex-col w-full  min-h-screen justify-between items-center bg-[#fdfdfd] overflow-hidden pathway-extreme">
-      <Navbar />
-
+    <div className="pathway-extreme relative flex min-h-screen  w-full flex-col items-center justify-between overflow-hidden bg-[#fdfdfd]">
       <Marquee loop={0} autoFill={true} className="w-full">
-        <div className="w-1 h-1 bg-black"></div>{" "}
+        <div className="h-1 w-1 bg-black"></div>{" "}
         <div className="p-6 px-[50px]">404 ERROR</div>
       </Marquee>
       <Marquee loop={0} autoFill={true} direction="right" className="w-full">
-        <div className="w-1 h-1 bg-black"></div>{" "}
+        <div className="h-1 w-1 bg-black"></div>{" "}
         <div className="p-6 px-[50px]">404 ERROR</div>
       </Marquee>
       <Marquee loop={0} autoFill={true} className="w-full">
-        <div className="w-1 h-1 bg-black"></div>{" "}
+        <div className="h-1 w-1 bg-black"></div>{" "}
         <div className="p-6 px-[50px]">404 ERROR</div>
       </Marquee>
       <Marquee loop={0} autoFill={true} direction="right" className="w-full">
-        <div className="w-1 h-1 bg-black"></div>{" "}
+        <div className="h-1 w-1 bg-black"></div>{" "}
         <div className="p-6 px-[50px]">404 ERROR</div>
       </Marquee>
       <Marquee loop={0} autoFill={true} className="w-full">
-        <div className="w-1 h-1 bg-black"></div>{" "}
+        <div className="h-1 w-1 bg-black"></div>{" "}
         <div className="p-6 px-[50px]">404 ERROR</div>
       </Marquee>
       <Marquee loop={0} autoFill={true} direction="right" className="w-full">
-        <div className="w-1 h-1 bg-black"></div>{" "}
+        <div className="h-1 w-1 bg-black"></div>{" "}
         <div className="p-6 px-[50px]">404 ERROR</div>
       </Marquee>
       <Marquee loop={0} autoFill={true} className="w-full">
-        <div className="w-1 h-1 bg-black"></div>{" "}
+        <div className="h-1 w-1 bg-black"></div>{" "}
         <div className="p-6 px-[50px]">404 ERROR</div>
       </Marquee>
       <Marquee loop={0} autoFill={true} direction="right" className="w-full">
-        <div className="w-1 h-1 bg-black"></div>{" "}
+        <div className="h-1 w-1 bg-black"></div>{" "}
         <div className="p-6 px-[50px]">404 ERROR</div>
       </Marquee>
       <Marquee loop={0} autoFill={true} className="w-full">
-        <div className="w-1 h-1 bg-black"></div>{" "}
+        <div className="h-1 w-1 bg-black"></div>{" "}
         <div className="p-6 px-[50px]">404 ERROR</div>
       </Marquee>
       <Marquee loop={0} autoFill={true} direction="right" className="w-full">
-        <div className="w-1 h-1 bg-black"></div>{" "}
+        <div className="h-1 w-1 bg-black"></div>{" "}
         <div className="p-6 px-[50px]">404 ERROR</div>
       </Marquee>
 
-      <div className="absolute top-0 bottom-0 left-0 right-0  flex w-full h-full justify-center items-center z-10 pointer-events-none">
-        <div className="flex flex-col justify-center items-center w-fit h-fit p-5 bg-[#2d2d2d]  text-white poppins-regular text-2xl">
+      <div className="pointer-events-none absolute bottom-0 left-0 right-0  top-0 z-10 flex h-full w-full items-center justify-center">
+        <div className="poppins-regular flex h-fit w-fit flex-col items-center justify-center bg-[#2d2d2d]  p-5 text-2xl text-white">
           <div className="p-5"> OOOPS. PAGE NOT FOUND.</div>
           <Link
             href={"/"}
-            className="bg-white text-black px-4 py-1 m-2 text-xl hover:scale-110 transition-all pointer-events-auto"
+            className="pointer-events-auto m-2 bg-white px-4 py-1 text-xl text-black transition-all hover:scale-110"
           >
             HEAD FOR HOME
           </Link>

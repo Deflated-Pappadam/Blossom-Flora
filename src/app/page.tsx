@@ -194,8 +194,8 @@ function Page() {
             <FadeUp className="h-full w-full">
               <div className="px-5 text-[0.9rem] font-light md:text-base">
                 Flowers are a special way to show someone you love and
-                appreciate them. You can visit Florists to select flowers of
-                your choice which can be arranged by them in an appealing way.
+                appreciate them. You can visit Blossom Flora to select flowers
+                of your choice which can be arranged by us in an appealing way.
                 We have a wide variety of options to make sure that you can find
                 something appropriate for the occasion for which you need them.
                 <br />

@@ -4,118 +4,114 @@ import Navbar from "@/app/components/Navbar";
 import { auth, db, getUser } from "../../../firebase";
 import { User, createUserWithEmailAndPassword } from "firebase/auth";
 import { useEffect, useState } from "react";
-import { doc, setDoc} from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 import { useRouter } from "next/navigation";
 import toast, { Toaster } from "react-hot-toast";
 
 export default function SignUp() {
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
+  const { push } = useRouter();
 
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [name, setName] = useState('');
-  const [password, setPassword] = useState('');
-  const { push } = useRouter()
-
-  async function createDoc (user: User) {
+  async function createDoc(user: User) {
     await setDoc(doc(db, "users", user.uid), {
       name: name,
-      phone: phone
-    })
+      phone: phone,
+    });
   }
 
   useEffect(() => {
-    return getUser(user => {
-      if (user) push("/")
-    })
-  })
-  
+    return getUser((user) => {
+      if (user) push("/");
+    });
+  });
+
   const handleSignUp = async () => {
     createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-        // Signed in 
-            const user = userCredential.user
-            createDoc(user);
-            toast.success("SignUp Success")
-            push("/");
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        createDoc(user);
+        toast.success("SignUp Success");
+        push("/");
         // ...
-        })
-        .catch((error) => {
+      })
+      .catch((error) => {
         const errorCode = error.code;
-        toast.error(`Failed : ${errorCode}`)
+        toast.error(`Failed : ${errorCode}`);
         const errorMessage = error.message;
-        console.log(errorMessage)
+        console.log(errorMessage);
         // ..
-    });
-
-  }
+      });
+  };
 
   return (
-    <main className="flex flex-col w-full h-full justify-between ">
+    <>
       <Toaster />
-      
-      <Navbar/>
-      <section className="w-full h-full  flex flex-col justify-center items-center">
-        <div className="flex flex-col justify-center items-center my-[50px] w-full ">
-          <div className="text-3xl font-text text-center my-5">
+
+      <Navbar />
+      <section className="flex h-full  w-full flex-col items-center justify-center">
+        <div className="my-[50px] flex w-full flex-col items-center justify-center ">
+          <div className="font-text my-5 text-center text-3xl">
             Create Account
           </div>
-          <div className="flex flex-col md:w-[30%] mx-auto items-center justify-center text-start">
-            <div className="flex w-full md:w-[90%] text-lg  poppins-extralight justify-start uppercase tracking-widest  my-2">
+          <div className="mx-auto flex flex-col items-center justify-center text-start md:w-[30%]">
+            <div className="poppins-extralight my-2 flex w-full  justify-start text-lg uppercase tracking-widest  md:w-[90%]">
               Name
             </div>
             <input
-              className="flex-1 border border-black md:w-[90%] w-full  p-3"
+              className="w-full flex-1 border border-black p-3  md:w-[90%]"
               id="name"
               type="text"
               aria-label="email address"
               onChange={(e) => setName(e.target.value)}
             />
-            <div className="flex md:w-[90%] w-full  text-lg poppins-extralight uppercase tracking-widest justify-start my-2">
+            <div className="poppins-extralight my-2 flex  w-full justify-start text-lg uppercase tracking-widest md:w-[90%]">
               Phone
             </div>
             <input
-              className="flex border border-black md:w-[90%] w-full  p-3 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+              className="flex w-full border border-black p-3  [appearance:textfield] md:w-[90%] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
               id="phone"
               type="number"
               aria-label="email address"
               onChange={(e) => setPhone(e.target.value)}
             />
 
-            <div className="flex md:w-[90%] w-full text-lg poppins-extralight uppercase tracking-widest justify-start my-2">
+            <div className="poppins-extralight my-2 flex w-full justify-start text-lg uppercase tracking-widest md:w-[90%]">
               Email
             </div>
             <input
-              className="flex border border-black md:w-[90%] w-full  p-3"
+              className="flex w-full border border-black p-3  md:w-[90%]"
               id="email"
               type="email"
               aria-label="email address"
               onChange={(e) => setEmail(e.target.value)}
             />
-            <div className="flex md:w-[90%] w-full text-lg poppins-extralight uppercase tracking-widest justify-start my-2">
+            <div className="poppins-extralight my-2 flex w-full justify-start text-lg uppercase tracking-widest md:w-[90%]">
               Password
             </div>
             <input
-              className="flex border border-black md:w-[90%] w-full  p-3"
+              className="flex w-full border border-black p-3  md:w-[90%]"
               id="password"
               type="password"
               aria-label="email address"
               onChange={(e) => setPassword(e.target.value)}
             />
 
-            <button className="md:w-[90%] w-full rounded-md bg-black  text-white text-xl font-light text-center my-4 p-3" onClick={handleSignUp}>
+            <button
+              className="my-4 w-full rounded-md bg-black  p-3 text-center text-xl font-light text-white md:w-[90%]"
+              onClick={handleSignUp}
+            >
               CREATE
             </button>
-            <a className="font-light my-2 text-[17px]" href="/Login">
+            <a className="my-2 text-[17px] font-light" href="/Login">
               Back To Sign In
             </a>
           </div>
         </div>
-
-       
       </section>
-      <footer>
-        
-       </footer>
-    </main>
+    </>
   );
 }
