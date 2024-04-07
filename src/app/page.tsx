@@ -15,7 +15,7 @@ function Page() {
   const [cartCount, setCartCount] = useState(0);
 
   return (
-    <main className="flex h-full min-h-screen w-full flex-col justify-center overflow-x-hidden bg-[#fdfdfd]">
+    <>
       {/* <nav className="w-full flex justify-between items-center min-h-[5%] mx-auto uppercase  md:px-[6%] p-3 border-b border-black b-1 text-lg poppins-light">
         <div className="md:flex hidden gap-6 ">
           <div>Home</div>
@@ -62,7 +62,6 @@ function Page() {
         </div>
       </nav> */}
 
-      <Navbar />
       <section id="hero" className="realtive flex w-full flex-col ">
         {/* <div className="flex w-full items-center justify-center absolute main md:text-[1400%] text-[3rem] text-[#2d2d2d] uppercase p-10 md:pt-[10]">
         <span className="block md:inline">    Blossom<span className="main-thick">Flora</span></span>
@@ -135,7 +134,7 @@ function Page() {
         className="flex flex-col items-center bg-[#fafafa]"
       >
         <div className="w-full max-w-7xl justify-center gap-8 p-2">
-          <h2 className="font-caslon p-5 font-medium md:p-10">Best Sellers</h2>
+          <h2 className="p-5 font-caslon font-medium md:p-10">Best Sellers</h2>
           <FadeUp>
             <motion.section className="flex h-full w-full items-center justify-start gap-6 overflow-x-scroll py-4 md:py-6">
               <BSBox
@@ -196,18 +195,15 @@ function Page() {
             <h2 className="font-caslon text-black">About Us</h2>
             <FadeUp className="h-full w-full">
               <div className="px-5 text-[0.9rem] font-light md:text-base">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industrys standard dummy text
+                Flowers are a special way to show someone you love and
+                appreciate them. You can visit Florists to select flowers of
+                your choice which can be arranged by them in an appealing way.
+                We have a wide variety of options to make sure that you can find
+                something appropriate for the occasion for which you need them.
                 <br />
                 <br />
-                ever since the 1500s, when an unknown printer took a galley of
-                type and scrambled it to make a type specimen book.
-                <br />
-                <br />
-                remaining essentially unchanged. It was popularised in the 1960s
-                with the release of Letraset sheets containing Lorem Ipsum
-                passages, and more recently with desktop publishing software
-                like Aldus PageMaker including versions of Lorem Ipsum.
+                We also provide instructions to customers on how to take care of
+                flowers and plants.
               </div>
             </FadeUp>
           </div>
@@ -215,31 +211,38 @@ function Page() {
       </section>
       <section id="collectionSection">
         <div className="mx-auto mt-10 flex max-w-7xl  flex-col items-center">
-        <h2 className="font-caslon  text-black">Collections</h2>
-        <FadeUp>
-          <div className="flex flex-wrap justify-center gap-10 ">
-            <HomeCollections url="/items/I (5).jpg" name="Premium Car Deck." />
-            <HomeCollections
-              url="/items/I (4).jpg"
-              name="Red rose, dried Gixo. Bouqet"
-            />
-            <HomeCollections url="/items/I (3).jpg" name="Artifical Bouquet" />
-            <HomeCollections
-              url="/items/I (2).jpg"
-              name="Holy communion - decorated candle."
-            />
-            <HomeCollections
-              url="/items/I (1).jpg"
-              name="  Cypress Car Dexk."
-            />
-            <HomeCollections url="/items/I (6).jpg" name="Artifical Bouquet" />
-          </div>
-        </FadeUp>
+          <h2 className="font-caslon  text-black">Collections</h2>
+          <FadeUp>
+            <div className="flex flex-wrap justify-center gap-10 ">
+              <HomeCollections
+                url="/items/I (5).jpg"
+                name="Premium Car Deck."
+              />
+              <HomeCollections
+                url="/items/I (4).jpg"
+                name="Red rose, dried Gixo. Bouqet"
+              />
+              <HomeCollections
+                url="/items/I (3).jpg"
+                name="Artifical Bouquet"
+              />
+              <HomeCollections
+                url="/items/I (2).jpg"
+                name="Holy communion - decorated candle."
+              />
+              <HomeCollections
+                url="/items/I (1).jpg"
+                name="  Cypress Car Dexk."
+              />
+              <HomeCollections
+                url="/items/I (6).jpg"
+                name="Artifical Bouquet"
+              />
+            </div>
+          </FadeUp>
         </div>
-
       </section>
-      <Footer />
-    </main>
+    </>
   );
 }
 

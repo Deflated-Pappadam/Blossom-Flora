@@ -60,7 +60,7 @@ export default function Item({ params }: { params: { id: string } }) {
     updateDoc(doc(db, "/collection", params.id), {
       Stock: increment(quantity * -1),
     });
-    router.push("/Cart")
+    router.push("/Cart");
   };
 
   const handleAddToCart = async () => {
@@ -69,7 +69,7 @@ export default function Item({ params }: { params: { id: string } }) {
       const q = query(
         collection(db, "cart"),
         where("UserId", "==", user?.uid),
-        where("ItemId", "==", params.id)
+        where("ItemId", "==", params.id),
       );
       const d = await getDocs(q);
       if (!d.empty) {
@@ -78,7 +78,7 @@ export default function Item({ params }: { params: { id: string } }) {
         } else {
           await updateDoc(doc(db, "cart", d.docs[0].id), {
             Quantity: increment(quantity),
-            price:increment(data?.Price*quantity)
+            price: increment(data?.Price * quantity),
           });
         }
       } else {
@@ -87,7 +87,7 @@ export default function Item({ params }: { params: { id: string } }) {
           ItemId: params.id,
           ItemName: data?.Name,
           Quantity: quantity,
-          price: data?.Price*quantity,
+          price: data?.Price * quantity,
           ImageUrl: data?.ImageUrl,
         });
       }
@@ -97,32 +97,30 @@ export default function Item({ params }: { params: { id: string } }) {
     setLoading(false);
   };
 
-  if(!data || loading) return <LoadingScreen/>;
+  if (!data || loading) return <LoadingScreen />;
 
   return (
-    <div className="w-full md:min-h-screen flex flex-col justify-between items-center ">
-      <Navbar />
-      <div className="w-full h-full flex md:flex-row flex-col  md:px-10 justify-center item-center">
-        <div className=" max-h-[500px] md:h-full  flex justify-center items-center mx-auto my-auto  overflow-hidden">
-          <Image
-            src={data?.ImageUrl}
-            alt="Item01"
-            width={600}
-            height={800}
-            className="flex md:w-[500px] w-[300px]  justify-center h-[600px] object-cover "
-          />
-        </div>
-        <div className="flex flex-col md:w-[50%] h-full justify-center overflow-hidden p-4">
-          <div className="md:w-[80%] h-full md:h-fit ">
-            <div className="md:text-xl  font-light">Flowers</div>
-            <div className="text-4xl pathway-extreme">{data?.Name}</div>
-            <div className="text-xl poppins-light mt-5">{data?.Desc}</div>
-            <div className="flex flex-col py-5 font-light">
-              <div className="text-3xl pathway-extreme  py-2">Quantity</div>
+    <div className="item-center flex h-full w-full flex-col  justify-center md:flex-row md:px-10">
+      <div className=" mx-auto my-auto  flex max-h-[500px] items-center justify-center overflow-hidden  md:h-full">
+        <Image
+          src={data?.ImageUrl}
+          alt="Item01"
+          width={600}
+          height={800}
+          className="flex h-[600px] w-[300px]  justify-center object-cover md:w-[500px] "
+        />
+      </div>
+      <div className="flex h-full flex-col justify-center overflow-hidden p-4 md:w-[50%]">
+        <div className="h-full md:h-fit md:w-[80%] ">
+          <div className="font-light  md:text-xl">Flowers</div>
+          <div className="pathway-extreme text-4xl">{data?.Name}</div>
+          <div className="poppins-light mt-5 text-xl">{data?.Desc}</div>
+          {/* <div className="flex flex-col py-5 font-light">
+              <div className="pathway-extreme py-2  text-3xl">Quantity</div>
 
               <div className="flex items-center space-x-2">
                 <button
-                  className="px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded"
+                  className="rounded bg-gray-200 px-4 py-2 hover:bg-gray-300"
                   onClick={handleDecrease}
                 >
                   -
@@ -130,34 +128,35 @@ export default function Item({ params }: { params: { id: string } }) {
                 <input
                   title="test"
                   type="number"
-                  className="w-20 px-4 py-2 border text-center"
+                  className="w-20 border px-4 py-2 text-center"
                   value={quantity}
                   onChange={(e) => setQuantity(parseInt(e.target.value))}
                 />
                 <button
-                  className="px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded"
+                  className="rounded bg-gray-200 px-4 py-2 hover:bg-gray-300"
                   onClick={handleIncrease}
                 >
                   +
                 </button>
               </div>
             </div>
-            <div className="text-3xl text-gray-800 md:mx-0 my-5 mx-5">
+            <div className="mx-5 my-5 text-3xl text-gray-800 md:mx-0">
               ${data?.Price * quantity}
-            </div>
+            </div> */}
 
-            {user && (
-              <div className="group md:mx-0 mx-auto md:w-[60%] md:h-[60px] w-[90%] h-[50px] bg-black rounded-md hover:border-[1px] border-black hover:bg-white transition-all">
-                <button
-                  onClick={handleBooking}
-                  className="flex w-full h-full justify-center items-center text-white group-hover:text-black "
-                >
-                  Book Now ( vinu fix this)
-                </button>
-              </div>
-            )}
-            {user && (
-              <div className="group md:mx-0 mx-auto md:w-[60%] md:h-[60px] w-[90%] h-[50px] bg-black rounded-md hover:border-[1px] border-black hover:bg-white transition-all my-5">
+          {/* {user && ( */}
+          <div className="group mx-auto mt-5 h-[50px] w-[90%] rounded-md border-black bg-black transition-all hover:border-[1px] hover:bg-white md:mx-0 md:h-[60px] md:w-[60%]">
+            <a
+              href="https://wa.me/message/TWF43CZ5ANBTL1"
+              // onClick={handleBooking}
+              className="flex h-full w-full items-center justify-center text-white group-hover:text-black "
+            >
+              Book Now
+            </a>
+          </div>
+          {/* )} */}
+          {/* {user && (
+              <div className="group mx-auto my-5 h-[50px] w-[90%] rounded-md border-black bg-black transition-all hover:border-[1px] hover:bg-white md:mx-0 md:h-[60px] md:w-[60%]">
                 <button
                   className="flex w-full h-full justify-center items-center text-white group-hover:text-black "
                   onClick={handleAddToCart}
@@ -165,11 +164,9 @@ export default function Item({ params }: { params: { id: string } }) {
                   Add to Cart
                 </button>
               </div>
-            )}
-          </div>
+            )} */}
         </div>
       </div>
-      <div></div>
     </div>
   );
 }

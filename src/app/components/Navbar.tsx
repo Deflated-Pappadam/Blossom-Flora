@@ -81,12 +81,7 @@ export default function Navbar() {
           <div className="w-full">
             {/* Logo */}
             <div className="hidden justify-start pt-3 md:flex">
-              <Image
-                src="/logo.png"
-                alt="Logo"
-                width={120}
-                height={120}
-              />
+              <Image src="/logo.png" alt="Logo" width={120} height={120} />
             </div>
             <button onClick={handleDropDown}>
               <div className="flex justify-start pt-3 md:hidden">
@@ -103,11 +98,11 @@ export default function Navbar() {
 
           {/* Title */}
           <div className="flex w-full flex-col items-center justify-center font-logo text-xl font-bold">
-            <h1 className="text-center font-logo break-words text-md md:text-2xl lg:text-4xl">
+            <h1 className="break-words text-center font-logo text-md md:text-2xl lg:text-4xl">
               Blossom Flora
             </h1>
           </div>
-          <div className="w-full flex justify-end">
+          <div className="flex w-full justify-end">
             {/* Icons */}
             {user ? (
               // if user exist...add a logo to signout button
@@ -120,9 +115,9 @@ export default function Navbar() {
                     height={30}
                   />
                 </Link>
-                <Link href="/cart">
+                {/* <Link href="/cart">
                   <Image src="/cart.png" alt="cart" width={30} height={30} />
-                </Link>
+                </Link> */}
                 <button onClick={handleSignOut}>
                   <Image
                     src="/logout.png"
@@ -181,7 +176,7 @@ export default function Navbar() {
             <span className="absolute left-0 top-8 h-[2px] w-0 bg-black transition-all duration-300 group-hover:w-full"></span>
           </Link>
           <Link
-            href="/"
+            href="#contactUs"
             className="group relative inline-block hover:cursor-pointer"
           >
             <span className="py-2 text-black">CONTACT US</span>

@@ -15,6 +15,7 @@ import {
   where,
 } from "firebase/firestore";
 import LoadingScreen from "../loading";
+import Image from "next/image";
 
 export default function Cart() {
   const [user, setUser] = useState<User | null>(null);
@@ -23,8 +24,8 @@ export default function Cart() {
   const { push } = useRouter();
   useEffect(() => {
     return getUser((user) => {
-      // if (!user) push("/");
-      // else setUser(user);
+      if (!user) push("/login");
+      else setUser(user);
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
@@ -100,7 +101,7 @@ export default function Cart() {
           </div>
         ) : (
           <div className="flex w-full flex-col justify-between p-10 ">
-            <div className="font-caslon mx-auto hidden w-[70%] justify-between pb-5 text-2xl md:flex">
+            <div className="mx-auto hidden w-[70%] justify-between pb-5 font-caslon text-2xl md:flex">
               <div className="min-w-[45%] "></div>
               <div>Quantity</div>
               <div>Total</div>
@@ -111,22 +112,25 @@ export default function Cart() {
                 (item: {
                   id: React.Key;
                   ItemId: null;
-                  ItemName: null;
+                  ItemName: string;
                   Quantity: null;
                   price: null | null | undefined;
-                  ImageUrl: string | string | undefined;
+                  ImageUrl: string;
                 }) => (
                   <li
                     key={item.id}
                     className="flex w-full flex-col items-center justify-between  md:flex-row "
                   >
                     <div className="flex  md:mx-[200px] md:max-w-[45%]">
-                      <img
+                      <Image
                         src={item.ImageUrl}
+                        alt={item.ItemName}
+                        width={100}
+                        height={100}
                         className="h-[100px] w-[100px] object-cover"
                       />
                       <div>
-                        <div className="poppins-light p-2">{item.ItemName}</div>
+                        <p className="poppins-light p-2">{item.ItemName}</p>
                         <button
                           className="m-2 h-fit w-fit rounded-lg bg-black p-2 text-white"
                           onClick={() => removecart(item.ItemId)}
@@ -137,7 +141,7 @@ export default function Cart() {
                     </div>
                     <div className="flex flex-col md:w-[45%] ">
                       <li key={item.id} className="">
-                        <div className="font-caslon mx-auto flex w-full justify-between p-2 text-2xl md:mt-[10%] md:w-[70%]">
+                        <div className="mx-auto flex w-full justify-between p-2 font-caslon text-2xl md:mt-[10%] md:w-[70%]">
                           <div>{item.Quantity}</div>
                           <div>&#x20B9; {item.price}</div>
                         </div>
@@ -147,6 +151,7 @@ export default function Cart() {
                 ),
               )}
             </ul>
+            <button>Checkout</button>
           </div>
         )}
       </section>
