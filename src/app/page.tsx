@@ -228,10 +228,7 @@ function Page() {
                 url="/items/I (2).jpg"
                 name="Holy communion - decorated candle."
               />
-              <HomeCollections
-                url="/items/I (1).jpg"
-                name="  Cypress Car Dexk."
-              />
+              <HomeCollections url="/items/I (1).jpg" name="Cyprus Car Deck." />
               <HomeCollections
                 url="/items/I (6).jpg"
                 name="Artifical Bouquet"

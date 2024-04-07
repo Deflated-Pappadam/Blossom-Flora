@@ -9,16 +9,16 @@ type CollectionProps = {
 function Collection(props: CollectionProps) {
   return (
     <div>
-      <div className="group flex relative group md:w-[300px] md:h-[300px] md:min-w-[300px] md:min-h-[300px] w-[150px] h-[150px] min-w-[150px] min-h-[150px]  overflow-hidden ">
+      <div className="group group relative flex h-[150px] min-h-[150px] w-[150px] min-w-[150px] overflow-hidden md:h-[300px] md:min-h-[300px] md:w-[300px]  md:min-w-[300px] ">
         <Image
           width={1080}
           height={1080}
           src={props.url}
           alt=""
-          className="group-hover:scale-150 object-cover h-full w-full transition-all duration-500 group-hover:blur-[4px]"
+          className="h-full w-full  object-cover transition-all duration-500 group-hover:scale-150 group-hover:blur-[6px]"
         />
-        <div className="absolute w-full h-full top-[45%] text-center md:px-[5%] px-[15%] flex justify-center transition-all duration-500">
-          <p className="opacity-100 text-lg text-white font-caslon transition-all duration-500">
+        <div className="absolute top-[45%] flex h-full w-full justify-center px-[15%] text-center transition-all duration-500 md:px-[5%]">
+          <p className="font-caslon text-lg text-white opacity-0 transition-all duration-500 group-hover:visible group-hover:opacity-100">
             {props.name}
           </p>
         </div>
