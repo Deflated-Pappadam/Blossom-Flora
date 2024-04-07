@@ -1,21 +1,50 @@
-import React from 'react'
-import Image from 'next/image'
+import React from "react";
+import Image from "next/image";
+import { BsCart4 } from "react-icons/bs";
 
 type ItemProps = {
   ImageUrl: string;
   name: string;
+  desc: string;
   price: number;
-  id: string
-}
+  id: string;
+};
 
-export default function CollectionItem({ImageUrl, name, price, id}: ItemProps) {
+export default function CollectionItem({
+  ImageUrl,
+  name,
+  desc,
+  price,
+  id,
+}: ItemProps) {
+  var shortDesc = desc.length > 50 ? desc.substring(0, 50) + "..." : desc;
   return (
-    <a href={`/item/${id}`} className='relative'>
-          <Image src={ImageUrl} alt={'Product Image'} width={300} height={300} className='md:h-[250px] h-[200px] md:w-[250px] w-[200px] object-cover'/>
-        <div>
-          <h1 className='md:text-xl text-md'>{name}</h1>
-          <p className='md:text-md text-sm'>${price}</p>
-        </div>
+    <a
+      href={`/item/${id}`}
+      className="relative flex h-[400px] w-[300px] flex-col items-center justify-between overflow-hidden rounded-md border text-center"
+    >
+      <Image
+        src={ImageUrl}
+        alt={"Product Image"}
+        width={200}
+        height={300}
+        className="h-[200px] w-[200px] object-cover p-5 md:h-[250px] md:w-[250px]"
+      />
+      <div>
+        <h1 className="py-2 font-caslon text-md md:text-md">{name}</h1>
+        <p className="max-h-[100px] text-ellipsis px-2 py-2 text-sm">
+          {shortDesc}
+        </p>
+      </div>
+      <div className="flex w-full justify-between">
+        <div className="w-full border p-2">₹{price}</div>
+        <a
+          href="https://wa.me/message/TWF43CZ5ANBTL1?text=I'm%20inquiring%20about%20the%20apartment%20listing"
+          className="flex w-full items-center justify-center gap-2 border p-2 transition-colors duration-500 hover:bg-black hover:text-white"
+        >
+          <BsCart4 /> ORDER
+        </a>
+      </div>
     </a>
-  )
+  );
 }

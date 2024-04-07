@@ -55,7 +55,9 @@ export default function RootLayout({
       <body>
         <main className="flex h-full min-h-screen w-full flex-col justify-center overflow-x-hidden bg-[#fdfdfd]">
           <Navbar />
-          {children}
+          <main className="flex h-full min-h-screen w-full flex-col justify-center overflow-x-hidden bg-[#fdfdfd]">
+            {children}
+          </main>
           <Footer />
         </main>
       </body>

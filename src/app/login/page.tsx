@@ -38,7 +38,9 @@ export default function Login() {
       <Toaster />
       <section className="flex h-full  w-full flex-col items-center justify-center ">
         <div className="my-[50px] flex w-full flex-col items-center justify-center ">
-          <div className="font-text my-5 text-center text-[50px]">Login</div>
+          <div className="font-text my-5 text-center font-caslon text-[50px]">
+            Login
+          </div>
           <div className="poppins-extralight mx-auto flex w-full flex-col items-center justify-center tracking-widest md:w-[30%] ">
             <div className="my-2 flex w-[90%] justify-start  text-[20px] uppercase">
               Email
@@ -72,7 +74,7 @@ export default function Login() {
             >
               SIGN IN
             </button>
-            <a className="my-2 text-[17px] font-light" href="/SignUp">
+            <a className="my-2 text-[17px] font-light" href="/signup">
               Create Account
             </a>
           </div>

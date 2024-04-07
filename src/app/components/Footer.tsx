@@ -6,9 +6,9 @@ function Footer() {
   return (
     <footer
       id="contactUs"
-      className="mt-[100px] flex w-full justify-between gap-5 bg-[#EBF1FA] p-5"
+      className="mt-[100px] flex w-full justify-between gap-5 p-5"
     >
-      <div className="w-full">
+      <div className="map w-full">
         <iframe
           className="w-full"
           title="map"
@@ -20,7 +20,6 @@ function Footer() {
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
-        <p>Attingal, Near Town Hall, TVM</p>
       </div>
       <div className="flex flex-col">
         <div>

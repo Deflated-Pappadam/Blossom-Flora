@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { RxCross2 } from "react-icons/rx";
 import Image from "next/image";
 import Link from "next/link";
 import { User, signOut } from "firebase/auth";
@@ -43,18 +45,18 @@ export default function Navbar() {
         </div>
       </div>
       <div
-        className="delay-600 min-h-screen min-w-full overflow-hidden bg-slate-100 transition-all md:hidden"
+        className="delay-600 fixed top-0 z-50 min-h-screen min-w-full overflow-hidden bg-slate-100 transition-all duration-500 md:hidden"
         style={{
           width: dropDown === "none" ? "0px" : "150px",
-          display: dropDown === "none" ? "none" : "flex",
+          left: dropDown === "none" ? "-100%" : "0",
         }}
       >
-        <div className="mt-5 flex  w-full  flex-col  " id="navbar-default">
+        <div className="mt-5 flex w-full flex-col" id="navbar-default">
           <div
             className="flex items-end justify-end px-5 text-4xl"
             onClick={handleDropDown}
           >
-            X
+            <RxCross2 />
           </div>
           <div className="flex h-full w-full flex-col items-start justify-center">
             <a href="/" className="p-7">
@@ -63,10 +65,7 @@ export default function Navbar() {
             <a href="/" className="p-7">
               ABOUT US
             </a>
-            <a href="/committees" className="p-7">
-              SHOP
-            </a>
-            <a href="/" className="p-7">
+            <a href="/collections" className="p-7">
               COLLECTION
             </a>
             <a href="/" className="p-7">
@@ -85,13 +84,7 @@ export default function Navbar() {
             </div>
             <button onClick={handleDropDown}>
               <div className="flex justify-start pt-3 md:hidden">
-                <Image
-                  src="/menu.svg"
-                  alt="Logo"
-                  width={35}
-                  height={35}
-                  className="mb-2"
-                />
+                <GiHamburgerMenu />
               </div>
             </button>
           </div>
@@ -163,13 +156,6 @@ export default function Navbar() {
           </Link>
           <Link
             href="/collections"
-            className="group relative inline-block hover:cursor-pointer"
-          >
-            <span className="py-2 text-black">SHOP</span>
-            <span className="absolute left-0 top-8 h-[2px] w-0 bg-black transition-all duration-300 group-hover:w-full"></span>
-          </Link>
-          <Link
-            href="/#collectionSection"
             className="group relative inline-block hover:cursor-pointer"
           >
             <span className="py-2 text-black">COLLECTION</span>

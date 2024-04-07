@@ -52,7 +52,7 @@ export default function SignUp() {
       <Toaster />
       <section className="flex h-full  w-full flex-col items-center justify-center">
         <div className="my-[50px] flex w-full flex-col items-center justify-center ">
-          <div className="font-text my-5 text-center text-3xl">
+          <div className="font-text my-5 text-center font-caslon text-3xl">
             Create Account
           </div>
           <div className="mx-auto flex flex-col items-center justify-center text-start md:w-[30%]">
@@ -104,7 +104,7 @@ export default function SignUp() {
             >
               CREATE
             </button>
-            <a className="my-2 text-[17px] font-light" href="/Login">
+            <a className="my-2 text-[17px] font-light" href="/login">
               Back To Sign In
             </a>
           </div>
