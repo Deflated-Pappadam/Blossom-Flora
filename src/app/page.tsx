@@ -1,15 +1,13 @@
 "use client";
 import BSBox from "@/app/components/BSBox";
-import Navbar from "@/app/components/Navbar";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import "@splidejs/splide/dist/css/splide.min.css";
 import ThumbMob from "@/app/components/ThumbMob";
 import Thumbnails from "@/app/components/Thumbnails";
 import HomeCollections from "@/app/components/HomeCollections";
-import Footer from "@/app/components/Footer";
 import FadeUp from "@/app/components/FadeUp";
 function Page() {
   const [cartCount, setCartCount] = useState(0);
