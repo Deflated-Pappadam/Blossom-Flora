@@ -4,12 +4,13 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
 import Image from "next/image";
 
-function Carousal() {
+function Carousel() {
   return (
     <Splide
       options={{
-        label: "landing page carousal",
+        label: "landing page carousel",
         type: "fade",
+        role: "home carousel",
         rewind: true,
         autoplay: true,
         pagination: false,
@@ -63,4 +64,4 @@ function Carousal() {
   );
 }
 
-export default Carousal;
+export default Carousel;

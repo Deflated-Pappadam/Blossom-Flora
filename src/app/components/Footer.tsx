@@ -8,7 +8,7 @@ function Footer() {
       id="contactUs"
       className="mt-[100px] flex w-full flex-col-reverse justify-between gap-5 p-5 md:flex-row"
     >
-      <div className="map w-full">
+      <div className="map flex h-full w-full items-center justify-center">
         <iframe
           className="w-full"
           title="map"

@@ -5,7 +5,7 @@ import "@splidejs/splide/dist/css/splide.min.css";
 import ThumbMob from "@/app/components/ThumbMob";
 import Thumbnails from "@/app/components/Thumbnails";
 import HomeCollections from "@/app/components/HomeCollections";
-import Carousal from "./components/Carousal";
+import Carousal from "./components/Carousel";
 function Page() {
   return (
     <>

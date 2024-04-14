@@ -49,6 +49,7 @@ export default function Login() {
               className="w-[90%] flex-1 border border-black  p-3"
               id="email"
               type="email"
+              autoComplete="email"
               aria-label="email address"
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -62,9 +63,9 @@ export default function Login() {
             </div>
             <input
               className=" w-[90%] flex-1 border border-black p-3"
-              id="email"
+              id="password"
               type="password"
-              aria-label="email address"
+              aria-label="password"
               onChange={(e) => setPassword(e.target.value)}
             />
 
