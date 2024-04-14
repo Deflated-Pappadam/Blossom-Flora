@@ -31,7 +31,7 @@ function BSBox({ ImageUrl, name, price, id }: ItemProps) {
           </button> */}
           <a
             className="flex w-full cursor-pointer justify-center rounded-md bg-[#2d2d2d] p-2 text-white "
-            href="https://wa.me/message/TWF43CZ5ANBTL1"
+            href={`https://wa.me/7592092057?text=${encodeURI(`Is ${name} available?`)}`}
           >
             BOOK NOW
           </a>
