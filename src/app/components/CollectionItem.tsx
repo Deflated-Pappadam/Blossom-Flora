@@ -39,7 +39,7 @@ export default function CollectionItem({
       <div className="flex w-full justify-between">
         <div className="w-full border p-2">₹{price}</div>
         <a
-          href={`https://wa.me/7592092057?text=${encodeURI(`Is ${name} available?`)}`}
+          href={`https://wa.me/7592092057?text=${encodeURIComponent(`Is ${name} available?`)}`}
           className="flex w-full items-center justify-center gap-2 border p-2 transition-colors duration-500 hover:bg-black hover:text-white"
         >
           <BsCart4 /> ORDER

@@ -147,7 +147,7 @@ export default function Item({ params }: { params: { id: string } }) {
           {/* {user && ( */}
           <div className="group mx-auto mt-5 h-[50px] w-[90%] rounded-md border-black bg-black transition-all hover:border-[1px] hover:bg-white md:mx-0 md:h-[60px] md:w-[60%]">
             <a
-              href={`https://wa.me/7592092057?text=${encodeURI(`Is ${data?.name} available?`)}`}
+              href={`https://wa.me/7592092057?text=${encodeURIComponent(`Is ${data?.name} available?`)}`}
               // onClick={handleBooking}
               className="flex h-full w-full items-center justify-center text-white group-hover:text-black "
             >
