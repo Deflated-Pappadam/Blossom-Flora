@@ -64,9 +64,9 @@ function Page() {
             <div className="flex flex-col pt-10 text-xl leading-none md:text-2xl">
               SPECIALISTS IN THE CREATION, CURATION AND SUPPLY OF HIGH-QUALITY,
               STYLISH AND UNIQUE FLOWERS.
-              <button className="my-5 h-fit w-fit bg-[#2d2d2d] p-2 px-4 text-base text-white ">
+              <a href="/collections" className="my-5 h-fit w-fit bg-[#2d2d2d] p-2 px-4 text-base text-white ">
                 COLLECTIONS
-              </button>
+              </a>
             </div>
           </div>
           <div className="order-0 w-full overflow-hidden md:order-1 md:h-full md:max-w-[50%] ">
