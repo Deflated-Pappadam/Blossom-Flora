@@ -59,7 +59,7 @@ function Page() {
               </a>
             </div>
           </div>
-          <div className="order-0 m-auto h-[200px] w-full md:order-1 md:h-full md:w-[50%]">
+          <div className="order-0 m-auto h-[80%] w-full md:order-1 md:h-full md:w-[50%]">
             <Carousal />
           </div>
         </div>
