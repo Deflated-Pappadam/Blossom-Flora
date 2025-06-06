@@ -10,20 +10,10 @@ import { auth, getUser } from "../../../firebase";
 
 export default function Navbar() {
   const [user, setUser] = useState<User | null>(null);
-  const [dropDown, setDropDown] = useState("none");
+  const [dropDown, setDropDown] = useState(false);
 
   const handleDropDown = () => {
-    if (dropDown === "flex") {
-      setDropDown("none");
-    } else {
-      setDropDown("flex");
-    }
-  };
-
-  const handleMouseLeave = () => {
-    setTimeout(() => {
-      setDropDown("flex");
-    }, 700);
+    setDropDown(!dropDown);
   };
 
   const handleSignOut = () => {
@@ -37,139 +27,249 @@ export default function Navbar() {
   });
 
   return (
-    <nav className="flex h-full w-full flex-col ">
-      <div className="font-poppin mb-1 hidden  w-full  justify-start text-lg md:flex">
-        <div className="poppins-light mx-auto w-[90%] rounded-b-lg border-b-2 bg-[#2d2d2d] p-1 text-center text-md text-white">
-          Home delivery available only for nearby locations , please order
-          within a two day notice
-        </div>
-      </div>
-      <div
-        className="delay-600 fixed top-0 z-50 min-h-screen min-w-full overflow-hidden bg-slate-100 transition-all duration-500 md:hidden"
-        style={{
-          width: dropDown === "none" ? "0px" : "150px",
-          left: dropDown === "none" ? "-100%" : "0",
-        }}
-      >
-        <div className="mt-5 flex w-full flex-col" id="navbar-default">
-          <div
-            className="flex items-end justify-end px-5 text-4xl"
-            onClick={handleDropDown}
-          >
-            <RxCross2 />
-          </div>
-          <div className="flex h-full w-full flex-col items-start justify-center">
-            <a href="/" className="p-7">
-              HOME
-            </a>
-            <a href="/" className="p-7">
-              ABOUT US
-            </a>
-            <a href="/collections" className="p-7">
-              COLLECTION
-            </a>
-            <a href="/" className="p-7">
-              CONTACT US
-            </a>
-          </div>
+    <>
+      {/* Top Banner */}
+      <div className="hidden md:block bg-black text-white text-center py-2">
+        <div className="text-xs tracking-wider uppercase">
+          Home delivery available only for nearby locations - Please order within two days notice
         </div>
       </div>
 
-      <div className="mx-auto flex w-full flex-col justify-between px-10 py-[20px] md:w-[95%]  md:p-0 md:px-20 ">
-        <div className="flex justify-between">
-          <div className="w-full">
-            {/* Logo */}
-            <div className="hidden justify-start pt-3 md:flex">
-              <Image src="/logo.png" alt="Logo" width={120} height={120} />
+      {/* Main Navigation */}
+      <nav className="bg-white border-b border-gray-100 relative z-50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="flex justify-between items-center h-20">
+            
+            {/* Left Menu - Desktop */}
+            <div className="hidden md:flex items-center space-x-8">
+              <Link 
+                href="/" 
+                className="text-sm tracking-wider text-gray-600 hover:text-black transition-colors uppercase"
+              >
+                Home
+              </Link>
+              <Link 
+                href="/#aboutUs" 
+                className="text-sm tracking-wider text-gray-600 hover:text-black transition-colors uppercase"
+              >
+                About
+              </Link>
+              <Link 
+                href="/collections" 
+                className="text-sm tracking-wider text-gray-600 hover:text-black transition-colors uppercase"
+              >
+                Collections
+              </Link>
             </div>
-            <button aria-label="hamburger menu" onClick={handleDropDown}>
-              <div className="flex justify-start pt-3 md:hidden">
-                <GiHamburgerMenu />
+
+            {/* Mobile Menu Button */}
+            <button 
+              onClick={handleDropDown}
+              className="md:hidden p-2"
+              aria-label="Toggle menu"
+            >
+              <div className="w-6 h-4 flex flex-col justify-between">
+                <div className="w-full h-0.5 bg-black transition-all"></div>
+                <div className="w-full h-0.5 bg-black transition-all"></div>
+                <div className="w-full h-0.5 bg-black transition-all"></div>
               </div>
             </button>
-          </div>
 
-          {/* Title */}
-          <div className="flex w-full flex-col items-center justify-center font-logo text-xl font-bold">
-            <h1 className="break-words text-center font-logo text-md md:text-2xl lg:text-4xl">
-              Blossom Flora
-            </h1>
-          </div>
-          <div className="flex w-full justify-end">
-            {/* Icons */}
-            {user ? (
-              // if user exist...add a logo to signout button
-              <div className="my-auto flex h-full items-center gap-2 md:gap-6 md:pt-3">
-                <Link href="/user">
-                  <Image
-                    src="/profile.png"
-                    alt="user dashboard"
-                    width={30}
-                    height={30}
-                  />
-                </Link>
-                {/* <Link href="/cart">
-                  <Image src="/cart.png" alt="cart" width={30} height={30} />
-                </Link> */}
-                <button onClick={handleSignOut}>
-                  <Image
-                    src="/logout.png"
-                    alt="signout"
-                    width={25}
-                    height={25}
-                  />
-                </button>
-              </div>
-            ) : (
-              //if user doesnt exist...change logo of icons according to the route
-              <div className="my-auto flex h-full items-center gap-2 md:gap-6 md:pt-3">
-                <Link href="/login">
-                  <Image src="/login.png" alt="login" width={30} height={30} />
-                </Link>
-                <Link href="/signup">
-                  <Image
-                    src="/adduser.png"
-                    alt="signup"
-                    width={30}
-                    height={30}
-                  />
-                </Link>
-              </div>
-            )}
+            {/* Center Logo */}
+            <div className="absolute left-1/2 transform -translate-x-1/2">
+              <Link href="/" className="flex items-center">
+                <div className="hidden md:block mr-3">
+                  <Image src="/logo.png" alt="Logo" width={50} height={50} />
+                </div>
+                <h1 className="text-xl md:text-2xl font-light tracking-[0.2em] text-black uppercase">
+                  Blossom Flora
+                </h1>
+              </Link>
+            </div>
+
+            {/* Right Menu - Desktop */}
+            <div className="hidden md:flex items-center space-x-8">
+              <Link 
+                href="#contactUs" 
+                className="text-sm tracking-wider text-gray-600 hover:text-black transition-colors uppercase"
+              >
+                Contact
+              </Link>
+              
+              {user ? (
+                <div className="flex items-center space-x-4">
+                  {/* <Link 
+                    href="/user"
+                    className="text-sm tracking-wider text-gray-600 hover:text-black transition-colors uppercase"
+                  >
+                    Account
+                  </Link> */}
+                  <button 
+                    onClick={handleSignOut}
+                    className="text-sm tracking-wider text-gray-600 hover:text-black transition-colors uppercase"
+                  >
+                    Sign Out
+                  </button>
+                </div>
+              ) : (
+                <div className="flex items-center space-x-4">
+                  <Link 
+                    href="/login"
+                    className="text-sm tracking-wider text-gray-600 hover:text-black transition-colors uppercase"
+                  >
+                    Login
+                  </Link>
+                  <Link 
+                    href="/signup"
+                    className="text-sm tracking-wider text-gray-600 hover:text-black transition-colors uppercase"
+                  >
+                    Sign Up
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            {/* Mobile Icons */}
+            <div className="md:hidden flex items-center space-x-4">
+              {user ? (
+                <>
+                  <Link href="/user">
+                    <Image
+                      src="/profile.png"
+                      alt="Account"
+                      width={24}
+                      height={24}
+                      className="opacity-70 hover:opacity-100 transition-opacity"
+                    />
+                  </Link>
+                  <button onClick={handleSignOut}>
+                    <Image
+                      src="/logout.png"
+                      alt="Sign out"
+                      width={24}
+                      height={24}
+                      className="opacity-70 hover:opacity-100 transition-opacity"
+                    />
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link href="/login">
+                    <Image
+                      src="/login.png"
+                      alt="Login"
+                      width={24}
+                      height={24}
+                      className="opacity-70 hover:opacity-100 transition-opacity"
+                    />
+                  </Link>
+                  <Link href="/signup">
+                    <Image
+                      src="/adduser.png"
+                      alt="Sign up"
+                      width={24}
+                      height={24}
+                      className="opacity-70 hover:opacity-100 transition-opacity"
+                    />
+                  </Link>
+                </>
+              )}
+            </div>
           </div>
         </div>
 
-        <div className="hidden w-full items-center justify-center gap-8   p-5 text-center text-xl font-extralight  md:flex">
-          <Link
-            href="/"
-            className="group relative inline-block hover:cursor-pointer"
-          >
-            <span className="py-2 text-black">HOME</span>
-            <span className="absolute left-0 top-8 h-[2px] w-0 bg-black transition-all duration-300 group-hover:w-full"></span>
-          </Link>
-          <Link
-            href="/#aboutUs"
-            className="group relative inline-block hover:cursor-pointer"
-          >
-            <span className="py-2 text-black">ABOUT</span>
-            <span className="absolute left-0 top-8 h-[2px] w-0 bg-black transition-all duration-300 group-hover:w-full"></span>
-          </Link>
-          <Link
-            href="/collections"
-            className="group relative inline-block hover:cursor-pointer"
-          >
-            <span className="py-2 text-black">COLLECTION</span>
-            <span className="absolute left-0 top-8 h-[2px] w-0 bg-black transition-all duration-300 group-hover:w-full"></span>
-          </Link>
-          <Link
-            href="#contactUs"
-            className="group relative inline-block hover:cursor-pointer"
-          >
-            <span className="py-2 text-black">CONTACT US</span>
-            <span className="absolute left-0 top-8 h-[2px] w-0 bg-black transition-all group-hover:w-full "></span>
-          </Link>
+        {/* Mobile Menu Overlay */}
+        <div className={`
+          md:hidden fixed inset-0 bg-black bg-opacity-50 transition-opacity duration-300 z-40
+          ${dropDown ? 'opacity-100' : 'opacity-0 pointer-events-none'}
+        `}>
+          <div className={`
+            fixed top-0 left-0 h-full w-80 bg-white shadow-xl transform transition-transform duration-300 ease-in-out
+            ${dropDown ? 'translate-x-0' : '-translate-x-full'}
+          `}>
+            {/* Mobile Menu Header */}
+            <div className="flex justify-between items-center p-6 border-b border-gray-100">
+              <h2 className="text-lg font-light tracking-wider uppercase">Menu</h2>
+              <button onClick={handleDropDown} className="p-2">
+                <RxCross2 className="w-6 h-6" />
+              </button>
+            </div>
+
+            {/* Mobile Menu Items */}
+            <div className="flex flex-col pt-8">
+              <Link 
+                href="/" 
+                className="px-6 py-4 text-sm tracking-wider text-gray-800 hover:text-black hover:bg-gray-50 transition-colors uppercase border-b border-gray-50"
+                onClick={() => setDropDown(false)}
+              >
+                Home
+              </Link>
+              <Link 
+                href="/#aboutUs" 
+                className="px-6 py-4 text-sm tracking-wider text-gray-800 hover:text-black hover:bg-gray-50 transition-colors uppercase border-b border-gray-50"
+                onClick={() => setDropDown(false)}
+              >
+                About Us
+              </Link>
+              <Link 
+                href="/collections" 
+                className="px-6 py-4 text-sm tracking-wider text-gray-800 hover:text-black hover:bg-gray-50 transition-colors uppercase border-b border-gray-50"
+                onClick={() => setDropDown(false)}
+              >
+                Collections
+              </Link>
+              <Link 
+                href="#contactUs" 
+                className="px-6 py-4 text-sm tracking-wider text-gray-800 hover:text-black hover:bg-gray-50 transition-colors uppercase border-b border-gray-50"
+                onClick={() => setDropDown(false)}
+              >
+                Contact Us
+              </Link>
+
+              {/* Mobile Auth Section */}
+              <div className="mt-8 px-6 py-4 bg-gray-50">
+                {user ? (
+                  <div className="space-y-3">
+                    {/* <Link 
+                      href="/user"
+                      className="block text-sm tracking-wider text-gray-800 hover:text-black transition-colors uppercase"
+                      onClick={() => setDropDown(false)}
+                    >
+                      My Account
+                    </Link> */}
+                    <button 
+                      onClick={() => {
+                        handleSignOut();
+                        setDropDown(false);
+                      }}
+                      className="block text-sm tracking-wider text-gray-800 hover:text-black transition-colors uppercase"
+                    >
+                      Sign Out
+                    </button>
+                  </div>
+                ) : (
+                  <div className="space-y-3">
+                    <Link 
+                      href="/login"
+                      className="block text-sm tracking-wider text-gray-800 hover:text-black transition-colors uppercase"
+                      onClick={() => setDropDown(false)}
+                    >
+                      Login
+                    </Link>
+                    <Link 
+                      href="/signup"
+                      className="block text-sm tracking-wider text-gray-800 hover:text-black transition-colors uppercase"
+                      onClick={() => setDropDown(false)}
+                    >
+                      Sign Up
+                    </Link>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </>
   );
 }

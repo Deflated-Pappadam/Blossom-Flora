@@ -16,7 +16,6 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { db, getUser } from "../../../../firebase";
 import { User } from "firebase/auth";
-import Navbar from "@/app/components/Navbar";
 import { useRouter } from "next/navigation";
 import LoadingScreen from "@/app/loading";
 
@@ -100,71 +99,121 @@ export default function Item({ params }: { params: { id: string } }) {
   if (!data || loading) return <LoadingScreen />;
 
   return (
-    <div className="item-center flex h-full w-full flex-col  justify-center md:flex-row md:px-10">
-      <div className=" mx-auto my-auto  flex max-h-[500px] items-center justify-center overflow-hidden  md:h-full">
-        <Image
-          src={data?.ImageUrl}
-          alt="Item01"
-          width={600}
-          height={800}
-          className="flex h-[600px] w-[300px]  justify-center object-cover md:w-[500px] "
-        />
-      </div>
-      <div className="flex h-full flex-col justify-center overflow-hidden p-4 md:w-[50%]">
-        <div className="h-full md:h-fit md:w-[80%] ">
-          <div className="font-light  md:text-xl">Flowers</div>
-          <div className="pathway-extreme text-4xl">{data?.Name}</div>
-          <div className="poppins-light mt-5 text-xl">{data?.Desc}</div>
-          {/* <div className="flex flex-col py-5 font-light">
-              <div className="pathway-extreme py-2  text-3xl">Quantity</div>
+    <div className="min-h-screen bg-white">
+      <div className="mx-auto max-w-7xl px-4 py-8 md:py-16">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-16">
+          
+          {/* Image Section */}
+          <div className="relative w-[500px] h-[600px]">
+            <div className="aspect-[2/4] overflow-hidden rounded-lg bg-gray-50 ">
+              <Image
+                src={data?.ImageUrl}
+                alt={data?.Name || "Product Image"}
+                fill
+                className="object-cover transition-transform duration-300 hover:scale-105 "
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+          </div>
 
-              <div className="flex items-center space-x-2">
+          {/* Content Section */}
+          <div className="flex flex-col justify-center space-y-6 md:space-y-8">
+            
+            {/* Category */}
+            <div className="text-sm font-medium tracking-wider text-gray-500 uppercase">
+              Flowers
+            </div>
+
+            {/* Title */}
+            <h1 className="text-3xl font-light tracking-tight text-gray-900 md:text-4xl lg:text-5xl">
+              {data?.Name}
+            </h1>
+
+            {/* Description */}
+            {data?.Desc && (
+              <p className="text-lg leading-relaxed text-gray-600 max-w-lg">
+                {data.Desc}
+              </p>
+            )}
+
+            {/* Price */}
+            {data?.Price && (
+              <div className="text-2xl font-light text-gray-900">
+                ₹{data.Price}
+              </div>
+            )}
+
+            {/* Quantity Selector */}
+            <div className="space-y-4">
+              <label className="text-sm font-medium tracking-wider text-gray-700 uppercase">
+                Quantity
+              </label>
+              <div className="flex items-center space-x-3">
                 <button
-                  className="rounded bg-gray-200 px-4 py-2 hover:bg-gray-300"
                   onClick={handleDecrease}
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-300 text-gray-600 transition-colors hover:border-gray-400 hover:bg-gray-50"
+                  disabled={quantity <= 1}
                 >
-                  -
+                  −
                 </button>
-                <input
-                  title="test"
-                  type="number"
-                  className="w-20 border px-4 py-2 text-center"
-                  value={quantity}
-                  onChange={(e) => setQuantity(parseInt(e.target.value))}
-                />
+                <span className="w-12 text-center text-lg font-medium">
+                  {quantity}
+                </span>
                 <button
-                  className="rounded bg-gray-200 px-4 py-2 hover:bg-gray-300"
                   onClick={handleIncrease}
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-300 text-gray-600 transition-colors hover:border-gray-400 hover:bg-gray-50"
+                  disabled={quantity >= 999}
                 >
                   +
                 </button>
               </div>
             </div>
-            <div className="mx-5 my-5 text-3xl text-gray-800 md:mx-0">
-              ${data?.Price * quantity}
-            </div> */}
 
-          {/* {user && ( */}
-          <div className="group mx-auto mt-5 h-[50px] w-[90%] rounded-md border-black bg-black transition-all hover:border-[1px] hover:bg-white md:mx-0 md:h-[60px] md:w-[60%]">
-            <a
-              href={`https://wa.me/7592092057?text=${encodeURIComponent(`Is ${data?.name} available?`)}`}
-              // onClick={handleBooking}
-              className="flex h-full w-full items-center justify-center text-white group-hover:text-black "
-            >
-              Book Now
-            </a>
-          </div>
-          {/* )} */}
-          {/* {user && (
-              <div className="group mx-auto my-5 h-[50px] w-[90%] rounded-md border-black bg-black transition-all hover:border-[1px] hover:bg-white md:mx-0 md:h-[60px] md:w-[60%]">
-                <button
-                  className="flex w-full h-full justify-center items-center text-white group-hover:text-black "
-                  onClick={handleAddToCart}
-                >
-                  Add to Cart
-                </button>
+            {/* Total Price */}
+            {data?.Price && (
+              <div className="border-t pt-4">
+                <div className="flex justify-between items-center">
+                  <span className="text-lg text-gray-600">Total</span>
+                  <span className="text-2xl font-medium text-gray-900">
+                    ₹{(data.Price * quantity).toLocaleString()}
+                  </span>
+                </div>
               </div>
-            )} */}
+            )}
+
+            {/* Action Buttons */}
+            <div className="space-y-4 pt-4">
+              
+              {/* Book Now Button */}
+              <a
+                href={`https://wa.me/7592092057?text=${encodeURIComponent(`Hi, I'm interested in ${data?.Name}. Is it available? Quantity: ${quantity}`)}`}
+                className="group relative block w-full overflow-hidden rounded-lg bg-black px-8 py-4 text-center transition-all duration-300 hover:bg-gray-800"
+              >
+                <span className="relative text-lg font-medium text-white">
+                  Book Now via WhatsApp
+                </span>
+              </a>
+
+              {/* Add to Cart Button (if user is logged in) */}
+              {/* {user && (
+                <button
+                  onClick={handleAddToCart}
+                  disabled={loading}
+                  className="w-full rounded-lg border-2 border-gray-900 px-8 py-4 text-lg font-medium text-gray-900 transition-all duration-300 hover:bg-gray-900 hover:text-white disabled:opacity-50"
+                >
+                  {loading ? "Adding..." : "Add to Cart"}
+                </button>
+              )} */}
+            </div>
+
+            {/* Additional Info */}
+            <div className="space-y-2 text-sm text-gray-500 border-t pt-6">
+              <p>• Free consultation on flower care</p>
+              <p>• Custom arrangements available</p>
+              <p>• Contact us for bulk orders</p>
+            </div>
+
+          </div>
         </div>
       </div>
     </div>

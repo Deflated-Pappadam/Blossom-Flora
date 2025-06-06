@@ -78,8 +78,7 @@ export default function Cart() {
 
   return (
     <main className="flex h-full min-h-screen w-full flex-col bg-slate-50 font-poppins">
-      <Navbar />
-      {/* Desktop Warning for Customers Hidden in Mobile View */}
+   
       <section
         id="cart"
         className="flex h-full w-full flex-col items-center justify-center"

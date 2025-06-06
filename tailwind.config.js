@@ -18,6 +18,25 @@ module.exports = {
       "4xl": "3.052rem",
       "5xl": "3.815rem",
     },
+     colors: {
+      "primary":"#2d2d2d",
+      "secondary":'#3a5a8c',
+      "accent":"#bcd0f2",
+      "background":"#fcfcfc",
+      
+      'blue': '#1fb6ff',
+      'purple': '#7e5bef',
+      'pink': '#ff49db',
+      'orange': '#ff7849',
+      'green': '#13ce66',
+      'yellow': '#ffc82c',
+      'gray-dark': '#273444',
+      'gray': '#8492a6',
+      'gray-light': '#d3dce6',
+      'black':'#000000',
+      'white':'#ffffff'
+
+    },
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

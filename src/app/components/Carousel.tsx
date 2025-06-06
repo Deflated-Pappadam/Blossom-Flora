@@ -1,66 +1,40 @@
 "use client";
 import React from "react";
-import { Splide, SplideSlide } from "@splidejs/react-splide";
-import "@splidejs/splide/dist/css/splide.min.css";
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Autoplay } from "swiper";
 import Image from "next/image";
 
+// Import Swiper styles
+import "swiper/css";
+
+// Install Swiper modules
+SwiperCore.use([Autoplay]);
+
 function Carousel() {
+  const images: string[] = ["Item (1).jpeg", "Item (2).jpeg", "Item (3).jpeg"];
   return (
-    <Splide
-      options={{
-        label: "landing page carousel",
-        type: "fade",
-        role: "home carousel",
-        rewind: true,
-        autoplay: true,
-        pagination: false,
-        interval: 2000,
-        arrows: false,
-        lazyLoad: true,
-        speed: 1000,
-        rewindSpeed: 1000,
+    <Swiper
+      spaceBetween={30}
+      slidesPerView={1}
+      autoplay={{
+        delay: 3000,
+        disableOnInteraction: false,
       }}
+      loop={true}
+      className="h-full w-full"
     >
-      <SplideSlide>
-        <div className="flex h-[40vh] justify-center md:h-[80vh]">
+      {images.map((src, index) => (
+        <SwiperSlide className="h-full w-full" key={index}>
           <Image
-            src="/items/I (3).jpeg"
-            priority
-            alt="item 1"
-            width={300}
-            height={300}
-            quality={80}
-            style={{ objectFit: "cover", width: "100%" }}
+            alt=""
+            src={`/items/${src}`}
+            width={1080}
+            height={1080}
+            className="object-cover"
           />
-        </div>
-      </SplideSlide>
-      <SplideSlide>
-        <div className="flex h-[40vh] justify-center md:h-[80vh]">
-          <Image
-            src="/items/I (4).jpeg"
-            priority
-            alt="item 2"
-            width={300}
-            height={300}
-            quality={80}
-            style={{ objectFit: "cover", width: "100%" }}
-          />
-        </div>
-      </SplideSlide>
-      <SplideSlide>
-        <div className="flex h-[40vh] justify-center md:h-[80vh]">
-          <Image
-            src="/items/I (6).jpeg"
-            priority
-            alt="item 3"
-            width={300}
-            height={300}
-            quality={80}
-            style={{ objectFit: "cover", width: "100%" }}
-          />
-        </div>
-      </SplideSlide>
-    </Splide>
+        </SwiperSlide>
+      ))}
+    </Swiper>
   );
 }
 
