@@ -11,7 +11,7 @@ type ItemProps = {
 
 function BSBox({ ImageUrl, name, price, id }: ItemProps) {
   return (
-    <a href={`/item/${id}`} className="group relative bg-white">
+    <a href={`/item/${id}`} className="group relative bg-white md:min-w-[150px] min-w-[250px]">
       {/* Product Image */}
       <div className="mb-4 aspect-square overflow-hidden bg-gray-50">
         <Image
