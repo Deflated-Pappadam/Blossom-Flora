@@ -43,7 +43,7 @@ function BSBox({ ImageUrl, name, price, id }: ItemProps) {
             View
           </a>
           <a
-            className="flex-1 border border-gray-900 px-3 py-2 text-center text-xs uppercase tracking-wide text-gray-900 transition-colors hover:bg-gray-900 hover:text-white"
+            className="flex-1 border border-gray-900 px-3 py-2 text-center text-xs uppercase tracking-wide text-gray-900 transition-colors hover:bg-blue-900 hover:text-blue"
             href={`https://wa.me/7592092057?text=${encodeURIComponent(`Is ${name} available?`)}`}
           >
             Book

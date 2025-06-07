@@ -5,26 +5,26 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { RxCross2 } from "react-icons/rx";
 import Image from "next/image";
 import Link from "next/link";
-import { User, signOut } from "firebase/auth";
-import { auth, getUser } from "../../../firebase";
+// import { User, signOut } from "firebase/auth";
+// import { auth, getUser } from "../../../firebase";
 
 export default function Navbar() {
-  const [user, setUser] = useState<User | null>(null);
+  // const [user, setUser] = useState<User | null>(null);
   const [dropDown, setDropDown] = useState(false);
 
   const handleDropDown = () => {
     setDropDown(!dropDown);
   };
 
-  const handleSignOut = () => {
-    signOut(auth);
-  };
+  // const handleSignOut = () => {
+  //   signOut(auth);
+  // };
 
-  useEffect(() => {
-    return getUser((user) => {
-      setUser(user);
-    });
-  });
+  // useEffect(() => {
+  //   return getUser((user) => {
+  //     setUser(user);
+  //   });
+  // });
 
   return (
     <>
@@ -76,7 +76,18 @@ export default function Navbar() {
             </button>
 
             {/* Center Logo */}
-            <div className="absolute left-1/2 transform -translate-x-1/2">
+            <div className="md:pr-0 pr-4 md:hidden block">
+              <Link href="/" className="flex items-center">
+                <div className="hidden md:block mr-3">
+                  <Image src="/logo.png" alt="Logo" width={50} height={50} />
+                </div>
+                <h1 className="text-xl md:text-2xl font-light tracking-[0.2em] text-black uppercase">
+                  Blossom Flora
+                </h1>
+              </Link>
+            </div>
+
+             <div className="md:block hidden absolute left-1/2 transform -translate-x-1/2">
               <Link href="/" className="flex items-center">
                 <div className="hidden md:block mr-3">
                   <Image src="/logo.png" alt="Logo" width={50} height={50} />
@@ -96,14 +107,15 @@ export default function Navbar() {
                 Contact
               </Link>
               
-              {user ? (
+              {/* Authentication Section - Commented Out */}
+              {/* {user ? (
                 <div className="flex items-center space-x-4">
-                  {/* <Link 
+                  <Link 
                     href="/user"
                     className="text-sm tracking-wider text-gray-600 hover:text-black transition-colors uppercase"
                   >
                     Account
-                  </Link> */}
+                  </Link>
                   <button 
                     onClick={handleSignOut}
                     className="text-sm tracking-wider text-gray-600 hover:text-black transition-colors uppercase"
@@ -126,11 +138,11 @@ export default function Navbar() {
                     Sign Up
                   </Link>
                 </div>
-              )}
+              )} */}
             </div>
 
-            {/* Mobile Icons */}
-            <div className="md:hidden flex items-center space-x-4">
+            {/* Mobile Icons - Commented Out */}
+            {/* <div className="md:hidden flex items-center space-x-4">
               {user ? (
                 <>
                   <Link href="/user">
@@ -174,7 +186,7 @@ export default function Navbar() {
                   </Link>
                 </>
               )}
-            </div>
+            </div> */}
           </div>
         </div>
 
@@ -226,17 +238,17 @@ export default function Navbar() {
                 Contact Us
               </Link>
 
-              {/* Mobile Auth Section */}
-              <div className="mt-8 px-6 py-4 bg-gray-50">
+              {/* Mobile Auth Section - Commented Out */}
+              {/* <div className="mt-8 px-6 py-4 bg-gray-50">
                 {user ? (
                   <div className="space-y-3">
-                    {/* <Link 
+                    <Link 
                       href="/user"
                       className="block text-sm tracking-wider text-gray-800 hover:text-black transition-colors uppercase"
                       onClick={() => setDropDown(false)}
                     >
                       My Account
-                    </Link> */}
+                    </Link>
                     <button 
                       onClick={() => {
                         handleSignOut();
@@ -265,7 +277,7 @@ export default function Navbar() {
                     </Link>
                   </div>
                 )}
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
